@@ -21,21 +21,21 @@ Es evidente la problemática de asistencia a eventos con respecto a problemátic
 - Gimena Victoria Gaspar, 19 años, estudiante de Ingenieria Informatica, me gustan los perros y gatos.
 - Leonardo Ismael Barconte
 - Francisco Caleb Medrano,17 años, Estudiante de secundaria técnica informatica.
-- Araceli Ingrid Mamani,
+- ~~Araceli Ingrid Mamani?~~,
 - Mariano Chorolque, 20 años, Estudiante de Medicina y Analista Programador.
-- Priscila Hernáez Landriel
+- ~~Priscila Hernáez Landriel~~
 
 ## Referentes del mercado
 
-Paginas a destacar por su buen pagina de inicio y disposicion de elementos
+#### Paginas a destacar por su buen pagina de inicio y disposicion de elementos
 - https://www.allaccess.com.ar/
 - https://seatgeek.com/
 - https://www.eventbrite.es/
 - https://www.stubhub.com/
 - https://www.elcorteingles.es/
-Paginas a descatar por calidad de detalle de productos
+#### Paginas a descatar por calidad de detalle de productos
 - https://www.civitatis.com/es/
-Paginas con algunos detalles a destacar
+#### Paginas con algunos detalles a destacar
 - https://www.ticketmaster.es/
 - https://www.entradas.com/
 - https://www.ticketek.com.ar/
