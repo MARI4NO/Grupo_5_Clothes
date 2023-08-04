@@ -17,13 +17,13 @@ Es evidente la problemática de asistencia a eventos con respecto a problemátic
 
 ## Integrantes del Equipo:
 
-- Luciana Maria Del Valle Fernandez, 23 años, estudiante de la carrera de Contador Publico.
+- Julieta Natalia Cabezas.
 - Gimena Victoria Gaspar, 19 años, estudiante de Ingenieria Informatica, me gustan los perros y gatos.
-- Leonardo Ismael Barconte
+- Leonardo Ismael Barconte.
 - Francisco Caleb Medrano,17 años, Estudiante de secundaria técnica informatica.
-- ~~Araceli Ingrid Mamani?~~,
+- Brian Leonel González.
 - Mariano Chorolque, 20 años, Estudiante de Medicina y Analista Programador.
-- ~~Priscila Hernáez Landriel~~
+- Guillermo Javier Soto.
 
 ## Referentes del mercado
 
@@ -39,6 +39,10 @@ Es evidente la problemática de asistencia a eventos con respecto a problemátic
 - https://www.ticketmaster.es/
 - https://www.entradas.com/
 - https://www.ticketek.com.ar/
+
+## Link del tablero de Trabajo
+
+- https://trello.com/b/u1p33ud8/proyecto-integrador-grupo-5-concert-pass
 
 
 [![Messi](https://fotos.perfil.com//2022/12/20/900/0/leo-messi-compartio-una-foto-durmiendo-con-la-copa-antes-de-llegar-al-pais-1476589.jpg)](#)
