@@ -101,12 +101,12 @@ body {
 }
 
 .busqueda input[type="text"] {
-  background-color: #d9d9d9;
+  background: radial-gradient(circle,#c797ee 0%,rgb(231 129 150) 100%);
   padding: 6px;
   padding-left: 30px;
   border: none;
   border-radius: 10px;
-  width: 50%;
+  width: 55%;
   height: 30px;
   color: black;
   font-size: 16px;
@@ -114,6 +114,12 @@ body {
 }
 #barra-busq:focus {
   outline: 0px;
+}
+/*COLOR PLACEHOLDEER (LETRAS DENTRO DE BARRABUSQUEDA)*/
+::placeholder{
+  color: #ffffff;
+  font-family:'Lexend Deca', sans-serif;
+  font-size: 18px;
 }
 
 .icono-busq {
@@ -126,4 +132,76 @@ body {
   border-radius: 10px;
 }
 
+/*CSS GIME*/
 
+/*ARTICULOS-PRODUCTO*/
+.body-articulos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/*CAJA PADRE*/
+.caja-producto{
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  width: 100%;
+  margin: 8px;
+  border-radius: 10px;
+  border: solid 4px black;
+}
+.foto-producto{
+  width: 100%;
+}
+/*DESCRIPCION PRODUCTO*/
+.descripcion-producto{
+  margin: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.titulo-show{
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0px 10px;
+}
+.lugar-show{
+  font-size: 16px;
+  margin: 6px 10px;
+}
+.boton-comprar{
+  border-radius: 10px;
+  border: solid 3px black;
+  padding: 7px;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 5px;
+  background: radial-gradient(circle, rgb(231 129 150) 0%, #c797ee 100%);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.boton-comprar:hover{
+  background: radial-gradient(circle,#c797ee 0%,rgb(231 129 150)  100%);
+}
+.ticket-botoncomprar{
+  padding: 0px 5px;
+}
+
+/*TABLET*/
+@media(min-width:530px){
+  .caja-producto{
+      display: flex;
+      width: 45%;
+      flex-wrap: wrap;
+  }
+}
+/*DESKTOP*/
+@media(min-width:1000px){
+  .caja-producto{
+      display: flex;
+      width: 29%;
+      flex-wrap: wrap;
+  }
+}
