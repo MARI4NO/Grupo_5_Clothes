@@ -76,7 +76,7 @@
 }
 .subirboton{
     border-radius: 20px;
-    border: none ;
+    border: solid 3px black ;
     font-family: "Lexend Deca";
     background: radial-gradient(circle,#c797ee 0%,rgb(231 129 150) 100%);
     padding-top: 5px;
