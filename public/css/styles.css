@@ -1,0 +1,88 @@
+/* CARRITO DE COMPRAS (MOBILE / DESKTOP)*/
+.todocarrito{
+    font-family: "Lexend Deca";
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.producto{
+    background-color: rgb(221, 221, 221);
+    border-radius: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 1px;
+    margin-bottom:15px ;
+}
+.producto h2{
+    margin-left: 10px;
+}
+.presybot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    margin-right: 50px;
+}
+.producto p{
+    margin-left: 30px;
+}
+.icon{
+    background-color: rgb(167, 167, 167);
+    border: none;
+    border-radius: 100%;
+    padding: 10px;
+}
+.presybot input{
+    font-family: "Lexend Deca";
+    font-size: 15px;
+    border: none;
+    width: 10%;
+    text-align: center;
+    background-color: rgb(221, 221, 221);;
+}
+.presybot p{
+    background-color: rgb(170, 167, 167);
+    border: none;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.total{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: end;
+    padding-right: 20px;
+}
+.total div{
+    background-color: rgb(170, 167, 167);
+    border: none;
+    text-align: center;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left:20px ;
+}
+.sub{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    margin-right: 20px;
+}
+.subirboton{
+    border-radius: 20px;
+    border: none ;
+    font-family: "Lexend Deca";
+    background: radial-gradient(circle,#c797ee 0%,rgb(231 129 150) 100%);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left:20px ;
+    text-align: end;
+}
