@@ -205,42 +205,100 @@ body {
       flex-wrap: wrap;
   }
 }
-
+/* Estilos generales */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
   }
   
+  /* Estilos para el header */
   .main-header {
     background-color: #FFFAFB;
     display: flex;
-    justify-content: space-between; 
     align-items: center;
+    justify-content: space-between;
     padding: 10px 20px;
   }
-  .logo {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-  }
+  
+  /* Estilos para el logo */
   .logo img {
-    width: 150px; 
-    height: auto; 
-    margin-right: 10px; 
+    width: 40px;
+    height: auto;
   }
-
-  .user-icons {
-    font-size: 20px;
-    display: flex; 
-  align-items: center; 
-}
-
-.user-icons i {
+  
+  /* Estilos para los iconos en desktop */
+  .desktop-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .desktop-icons li {
     margin-left: 20px;
-    cursor: pointer;
   }
-
+  
+  .desktop-icons a {
+    color: #141414;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  /* Estilos para el botón de dropdown */
+  .dropdown-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: none;
+  }
+  
+  /* Estilos para el contenido del dropdown */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFFAFB;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+  }
+  
+  .dropdown-content a {
+    color: #141414;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .main-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .desktop-icons {
+      display: none;
+    }
+  
+    .dropdown-button {
+      display: block;
+    }
+  
+    .dropdown {
+      margin-top: 10px;
+    }
+  
+    .dropdown-content {
+      display: block;
+    }
+  }
 
 /* Estilos para el footer */
 .main-footer {
