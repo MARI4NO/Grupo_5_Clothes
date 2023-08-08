@@ -371,4 +371,38 @@ body {
   .social-icons a:first-child {
     margin-left: 0;
   }
+
+  /* Estilos responsivos */
+@media (max-width: 768px) {
+    .footer-left {
+      flex-wrap: wrap;
+      height: auto;
+    }
+  
+    .resources, .need-help {
+      flex-basis: 100%; 
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+    .logo {
+        text-align: center;
+        width: 100%; 
+      }
+    
+      .logo img {
+        width: 250px; 
+        height: auto;
+        vertical-align: middle;
+      }
+    
+    .footer-right {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-right .social-icons {
+      margin-top: 10px;
+    }
+  }
   
