@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Product Details</title>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="/css/productDetail.css" />
+
+        <!-- Fuentes -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Roboto:wght@100&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main class="">
+            <picture class="detail-banner">
+                <img src="/img/Taylor.png" alt="Banner de Taylor Swift" />
+            </picture>
+            <h2 class="detail-title">Taylor Swift - The eras tour</h2>
+            <section>
+                <i class="fa-solid fa-location-dot"></i>
+                <article>
+                    <p><span>Lugar:</span>Estadio River Plate</p>
+                    <p>
+                        <span>Direccion:</span>Av. Pres. Figueroa Alcorta 7597
+                    </p>
+                    <p><span>Provincia:</span>Buenos Aires</p>
+                </article>
+            </section>
+            <section>
+                <span>Seleccionar una fecha:</span>
+            </section>
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de ticket</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>V.I.P. (MEET & GREET)</td>
+                            <td>$ 35.000</td>
+                            <td><input type="number" min="0" /></td>
+                        </tr>
+                        <tr>
+                            <td>CAMPO DELANTERO</td>
+                            <td>$ 25.000</td>
+                            <td><input type="number" min="0" /></td>
+                        </tr>
+                        <tr>
+                            <td>CAMPO TRASERO</td>
+                            <td>$ 20.000</td>
+                            <td><input type="number" min="0" /></td>
+                        </tr>
+                        <tr>
+                            <td>PLATEA BAJA</td>
+                            <td>$ 15.000</td>
+                            <td><input type="number" min="0" /></td>
+                        </tr>
+                        <tr>
+                            <td>PLATEA ALTA</td>
+                            <td>$ 12.000</td>
+                            <td><input type="number" min="0" /></td>
+                        </tr>
+                        <tr>
+                            <td>POPULAR</td>
+                            <td>$ 10.000</td>
+                            <td><input type="number" min="0" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <button>
+                    <span>Comprar</span> <i class="fa-solid fa-ticket"></i>
+                </button>
+            </section>
+        </main>
+    </body>
+</html>
