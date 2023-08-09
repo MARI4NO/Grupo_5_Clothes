@@ -15,6 +15,9 @@ app.get("/", (req, res) => {
 app.get("/detail", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/productDeatil.html"));
 });
+app.get("/misTickets", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./views/myTickets.html"));
+});
 
 // Start Server
 app.listen(3003, () => {
