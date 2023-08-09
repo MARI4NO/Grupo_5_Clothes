@@ -17,7 +17,7 @@ Es evidente la problemática de asistencia a eventos con respecto a problemátic
 
 ## Integrantes del Equipo:
 
-- Julieta Natalia Cabezas.
+- Julieta Natalia Cabezas, 20 años, estudiante de Traductorado de Inglés.
 - Gimena Victoria Gaspar, 19 años, estudiante de Ingenieria Informatica, me gustan los perros y gatos.
 - Leonardo Ismael Barconte.
 - Francisco Caleb Medrano,17 años, Estudiante de secundaria técnica informatica.
