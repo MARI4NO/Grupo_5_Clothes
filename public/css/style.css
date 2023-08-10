@@ -405,4 +405,81 @@ body {
       margin-top: 10px;
     }
   }
+
+/* Estilos para el login */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lexend Deca', sans-serif;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #FFFAFB;
+  }
+  
+  .login-box {
+    background-color: #FFF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .login-title {
+    font-size: 24px;
+    color: #141414;
+    margin-bottom: 20px;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #141414;
+  }
+  
+  .login-form input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .login-button {
+    background-color: #141414;
+    color: #FFFAFB;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #333;
+  }
+  
+  .register-link {
+    margin-top: 20px;
+    color: #141414;
+  }
+  
+  .register-link a {
+    color: #131313;
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .login-box {
+      width: 100%;
+      box-shadow: none;
+      padding: 20px;
+    }
+  }
+  
   
