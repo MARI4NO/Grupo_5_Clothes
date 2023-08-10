@@ -1,0 +1,347 @@
+* {
+  font-family: "Lexend Deca", sans-serif;
+}
+
+/* Estos estilos del nav son provisorios hasta que se añadan los nuevos*/
+.nav {
+  height: 100px;
+  background-color: #d9d9d9;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* la clase anuncio es solo un espacio hasta que econtremos que foto pone*/
+.anuncio {
+  background-color: #a9a9a9;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* De aca estan todos los estilos relacionados con la disposicion de cada evento */
+
+
+.caja-producto:hover{
+    box-shadow:  -6.891px 24.032px 76px 0px #66457657;
+    background-color: #66457630;
+}
+
+/* ESTILOS DE LA BARRA DE BUSQUEDA */
+.busqueda {
+  padding: 10px;
+  text-align: center;
+}
+
+.busqueda input[type="text"] {
+  background: radial-gradient(circle,#c797ee 0%,rgb(231 129 150) 100%);
+  padding: 6px;
+  padding-left: 30px;
+  border: none;
+  border-radius: 10px;
+  width: 55%;
+  height: 30px;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+}
+#barra-busq:focus {
+  outline: 0px;
+}
+/*COLOR PLACEHOLDEER (LETRAS DENTRO DE BARRABUSQUEDA)*/
+::placeholder{
+  color: #ffffff;
+  font-family:'Lexend Deca', sans-serif;
+  font-size: 18px;
+}
+
+.icono-busq {
+  color: #a6a6a6;
+  margin-left: 10px;
+  cursor: pointer;
+  height: 100%;
+  border: solid 2px ;
+  padding: 5px; 
+  border-radius: 10px;
+}
+
+/*CSS GIME*/
+
+/*ARTICULOS-PRODUCTO*/
+.body-articulos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/*CAJA PADRE*/
+.caja-producto{
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  width: 100%;
+  margin: 8px;
+  border-radius: 10px;
+  border: solid 4px black;
+  transition: all 0.3s;
+}
+.foto-producto{
+  width: 100%;
+}
+/*DESCRIPCION PRODUCTO*/
+.descripcion-producto{
+  margin: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.titulo-show{
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0px 10px;
+}
+.lugar-show{
+  font-size: 16px;
+  margin: 6px 10px;
+}
+.boton-comprar{
+  border-radius: 10px;
+  border: solid 3px black;
+  padding: 7px;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 5px;
+  background: radial-gradient(circle, rgb(231 129 150) 0%, #c797ee 100%);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.boton-comprar:hover{
+  background: radial-gradient(circle,#c797ee 0%,rgb(231 129 150)  100%);
+}
+.ticket-botoncomprar{
+  padding: 0px 5px;
+}
+
+/*TABLET*/
+@media(min-width:530px){
+  .caja-producto{
+      display: flex;
+      width: 45%;
+      flex-wrap: wrap;
+  }
+}
+/*DESKTOP*/
+@media(min-width:1000px){
+  .caja-producto{
+      display: flex;
+      width: 29%;
+      flex-wrap: wrap;
+  }
+}
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lexend Deca', sans-serif;
+  
+  }
+  
+  /* Estilos para el header */
+  .main-header {
+    background-color: #FFFAFB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  /* Estilos para el logo */
+  .logo img {
+    width: 40px;
+    height: auto;
+  }
+  
+  /* Estilos para los iconos en desktop */
+  .desktop-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .desktop-icons li {
+    margin-left: 20px;
+  }
+  
+  .desktop-icons a {
+    color: #141414;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  /* Estilos para el botón de dropdown */
+  .dropdown-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: none;
+  }
+  
+  /* Estilos para el contenido del dropdown */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFFAFB;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    top: 15%;
+  }
+  
+  .dropdown-content a {
+    color: #141414;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .main-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .desktop-icons {
+      display: none;
+    }
+  
+    .dropdown-button {
+      display: block;
+    }
+  
+    .dropdown {
+      margin-top: 10px;
+    }
+  
+    .dropdown-content {
+      display: block;
+    }
+  }
+
+/* Estilos para el footer */
+.main-footer {
+    background-color: #141414;
+    color: #FFFAFB;
+    font-family: "Lexend Deca", sans-serif;
+    padding: 20px;
+  }
+  
+  .footer-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    height: 200px;
+  }
+  
+  .resources, .need-help {
+    flex-basis: 23.33%; 
+    max-width: 23.33%;
+  }
+  
+  .resources h3, .need-help h3 {
+    margin-bottom: 10px;
+  }
+  
+  .resources ul, .need-help ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .resources ul li, .need-help ul li {
+    margin-bottom: 5px;
+  }
+
+  .logo {
+    text-align: center;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    height: 100%;
+  }
+  
+  .logo img {
+    width: 250px;
+    height: auto;
+    vertical-align: middle;
+  }
+  
+  a {
+    color: #FFFAFB;
+    text-decoration: none;
+  }
+  
+  .footer-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .social-icons a {
+    color: #FFFAFB;
+    margin-left: 10px;
+  }
+  
+  .social-icons a:first-child {
+    margin-left: 0;
+  }
+
+  /* Estilos responsivos */
+@media (max-width: 768px) {
+    .footer-left {
+      flex-wrap: wrap;
+      height: auto;
+    }
+  
+    .resources, .need-help {
+      flex-basis: 100%; 
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+    .logo {
+        text-align: center;
+        width: 100%; 
+      }
+    
+      .logo img {
+        width: 250px; 
+        height: auto;
+        vertical-align: middle;
+      }
+    
+    .footer-right {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-right .social-icons {
+      margin-top: 10px;
+    }
+  }
+  
