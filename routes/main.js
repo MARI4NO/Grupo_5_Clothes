@@ -6,5 +6,9 @@ const path=require("path");
 const mainController=require("../controllers/mainController");
 //llamando al controlador
 router.get("/", mainController.home);
-
+router.get("/login", mainController.login);
+router.get("/register", mainController.register);
+router.get("/misTickets", mainController.misTickets);
+router.get("/miCarrito", mainController.miCarrito);
+router.get("/detalleProducto", mainController.detalleProducto);
 module.exports=router;
