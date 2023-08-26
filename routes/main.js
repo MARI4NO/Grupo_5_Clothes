@@ -11,4 +11,5 @@ router.get("/register", mainController.register);
 router.get("/misTickets", mainController.misTickets);
 router.get("/miCarrito", mainController.miCarrito);
 router.get("/detalleProducto", mainController.detalleProducto);
+router.get("/crearProducto", mainController.crear);
 module.exports=router;

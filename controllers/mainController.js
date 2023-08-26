@@ -1,25 +1,25 @@
 const path=require("path");
 const controller={
     home: (req, res)=>{
-        res.render("index");
+        res.render("./products/index");
     },
     login:(req, res)=>{
-        res.render("login")
+        res.render("./users/login")
     },
     register:(req, res)=>{
-        res.render("register")
+        res.render("./users/register")
     },
     misTickets:(req, res)=>{
-        res.render("myTickets")
-    },
-    misTickets:(req, res)=>{
-        res.render("myTickets")
+        res.render("./users/myTickets")
     },
     miCarrito:(req, res)=>{
-        res.render("productCart")
+        res.render("./products/productCart")
     },
     detalleProducto:(req, res)=>{
-        res.render("productDetail")
+        res.render("./products/productDetail")
+    },
+    crear:(req, res)=>{
+        res.render("create")
     }
 };
 
