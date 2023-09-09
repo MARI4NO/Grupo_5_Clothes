@@ -1,10 +1,82 @@
 [
     {
         "id": 1,
-        "firstName": "",
-        "lastName": "",
-        "email": "",
-        "password": "",
-        "role": ""
+        "firstName": "Morrie",
+        "lastName": "Gummie",
+        "email": "mgummie0@accuweather.com",
+        "password": "nY781+mvZf",
+        "role": "admin"
+    },
+    {
+        "id": 2,
+        "firstName": "Faulkner",
+        "lastName": "Garrioch",
+        "email": "fgarrioch1@amazonaws.com",
+        "password": "xC300>~YY)?",
+        "role": "admin"
+    },
+    {
+        "id": 3,
+        "firstName": "Randene",
+        "lastName": "Pipworth",
+        "email": "rpipworth2@cam.ac.uk",
+        "password": "sJ103&/v#UB'dyo",
+        "role": "user"
+    },
+    {
+        "id": 4,
+        "firstName": "Thibaut",
+        "lastName": "Face",
+        "email": "tface3@amazon.com",
+        "password": "mQ169~B7.w",
+        "role": "admin"
+    },
+    {
+        "id": 5,
+        "firstName": "Raphael",
+        "lastName": "Gregorowicz",
+        "email": "rgregorowicz4@scribd.com",
+        "password": "uK448|rVBG5EWYw",
+        "role": "user"
+    },
+    {
+        "id": 6,
+        "firstName": "Charlotte",
+        "lastName": "Leeman",
+        "email": "cleeman5@utexas.edu",
+        "password": "mF696_8fE%_d+22",
+        "role": "user"
+    },
+    {
+        "id": 7,
+        "firstName": "Bernice",
+        "lastName": "Gatty",
+        "email": "bgatty6@cpanel.net",
+        "password": "zO722'x@2G",
+        "role": "user"
+    },
+    {
+        "id": 8,
+        "firstName": "Larina",
+        "lastName": "Brookz",
+        "email": "lbrookz7@netvibes.com",
+        "password": "nS464'?HbLv0Gf)",
+        "role": "user"
+    },
+    {
+        "id": 9,
+        "firstName": "Myranda",
+        "lastName": "Sooley",
+        "email": "msooley8@github.com",
+        "password": "qU471_OIw?HUt0$",
+        "role": "admin"
+    },
+    {
+        "id": 10,
+        "firstName": "Hermine",
+        "lastName": "Selley",
+        "email": "hselley9@sbwire.com",
+        "password": "mB619#2>I#",
+        "role": "admin"
     }
 ]
