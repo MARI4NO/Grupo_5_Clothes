@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "title": "",
+        "description": "",
+        "image": "",
+        "location": {
+            "city": "",
+            "place": "",
+            "address": ""
+        },
+        "tickets": [
+            {
+                "date": "",
+                "availableTickets": [
+                    {
+                        "type": "",
+                        "price": "",
+                        "availables": 20
+                    }
+                ]
+            }
+        ]
+    }
+]
