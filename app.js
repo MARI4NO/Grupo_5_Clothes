@@ -2,6 +2,7 @@
 const path = require("path");
 const express = require("express");
 const fs = require("fs");
+const methodOverride =  require('method-override');
 //requiriendo express en app
 const app = express();
 //accediendo a recursos estaticos
