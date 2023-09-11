@@ -1,0 +1,365 @@
+[
+    {
+        "id": 1,
+        "title": "TAYLOR SWIFT - THE ERAS TOUR",
+        "image": "Taylos.png",
+        "location": {
+            "city": "Buenos Aires",
+            "place": "Estadio River Plate",
+            "address": "AV. PRES. FIGUEROA ALCORTA 7597"
+        },
+        "tickets": [
+            {
+                "date": "9/9/2023",
+                "availableTickets": [
+                    {
+                        "type": "V.I.P. (MEET & GREET)",
+                        "price": 35000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO DELANTERO",
+                        "price": 25000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO TRASERO",
+                        "price": 20000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA BAJA",
+                        "price": 15000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA ALTA",
+                        "price": 12000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "POPULAR",
+                        "price": 10000,
+                        "availables": 20
+                    }
+                ]
+            },
+            {
+                "date": "10/9/2023",
+                "availableTickets": [
+                    {
+                        "type": "V.I.P. (MEET & GREET)",
+                        "price": 35000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO DELANTERO",
+                        "price": 25000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO TRASERO",
+                        "price": 20000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA BAJA",
+                        "price": 15000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA ALTA",
+                        "price": 12000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "POPULAR",
+                        "price": 10000,
+                        "availables": 20
+                    }
+                ]
+            },
+            {
+                "date": "11/9/2023",
+                "availableTickets": [
+                    {
+                        "type": "V.I.P. (MEET & GREET)",
+                        "price": 35000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO DELANTERO",
+                        "price": 25000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO TRASERO",
+                        "price": 20000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA BAJA",
+                        "price": 15000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA ALTA",
+                        "price": 12000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "POPULAR",
+                        "price": 10000,
+                        "availables": 20
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "LOLLAPALOZA",
+        "image": "Lolapalloza.png",
+        "location": {
+            "city": "Buenos Aires",
+            "place": "Hipódromo de San Isidro",
+            "address": "Av. Bernabé Márquez 700"
+        },
+        "tickets": [
+            {
+                "date": "15/3/2023",
+                "availableTickets": [
+                    {
+                        "type": "V.I.P. (MEET & GREET)",
+                        "price": 35000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO DELANTERO",
+                        "price": 25000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO TRASERO",
+                        "price": 20000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA BAJA",
+                        "price": 15000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA ALTA",
+                        "price": 12000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "POPULAR",
+                        "price": 10000,
+                        "availables": 20
+                    }
+                ]
+            },
+            {
+                "date": "16/3/2023",
+                "availableTickets": [
+                    {
+                        "type": "V.I.P. (MEET & GREET)",
+                        "price": 35000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO DELANTERO",
+                        "price": 25000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO TRASERO",
+                        "price": 20000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA BAJA",
+                        "price": 15000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA ALTA",
+                        "price": 12000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "POPULAR",
+                        "price": 10000,
+                        "availables": 20
+                    }
+                ]
+            },
+            {
+                "date": "17/3/2023",
+                "availableTickets": [
+                    {
+                        "type": "V.I.P. (MEET & GREET)",
+                        "price": 35000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO DELANTERO",
+                        "price": 25000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO TRASERO",
+                        "price": 20000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA BAJA",
+                        "price": 15000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA ALTA",
+                        "price": 12000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "POPULAR",
+                        "price": 10000,
+                        "availables": 20
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "THE LUMINIERS - SOUTH AMERICA TOUR",
+        "image": "LUMINIERS.png",
+        "location": {
+            "city": "CABA",
+            "place": "Estadio Obras",
+            "address": "Av. del Libertador 7395"
+        },
+        "tickets": [
+            {
+                "date": "1/11/2023",
+                "availableTickets": [
+                    {
+                        "type": "V.I.P. (MEET & GREET)",
+                        "price": 35000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO DELANTERO",
+                        "price": 25000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO TRASERO",
+                        "price": 20000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA BAJA",
+                        "price": 15000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA ALTA",
+                        "price": 12000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "POPULAR",
+                        "price": 10000,
+                        "availables": 20
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "DUKI",
+        "image": "duki.png",
+        "location": {
+            "city": "Buenos Aires",
+            "place": "Estadio River Plate",
+            "address": "AV. PRES. FIGUEROA ALCORTA 7597"
+        },
+        "tickets": [
+            {
+                "date": "2/12/2023",
+                "availableTickets": [
+                    {
+                        "type": "V.I.P. (MEET & GREET)",
+                        "price": 35000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO DELANTERO",
+                        "price": 25000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO TRASERO",
+                        "price": 20000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA BAJA",
+                        "price": 15000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA ALTA",
+                        "price": 12000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "POPULAR",
+                        "price": 10000,
+                        "availables": 20
+                    }
+                ]
+            },
+            {
+                "date": "3/12/2023",
+                "availableTickets": [
+                    {
+                        "type": "V.I.P. (MEET & GREET)",
+                        "price": 35000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO DELANTERO",
+                        "price": 25000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "CAMPO TRASERO",
+                        "price": 20000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA BAJA",
+                        "price": 15000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "PLATEA ALTA",
+                        "price": 12000,
+                        "availables": 20
+                    },
+                    {
+                        "type": "POPULAR",
+                        "price": 10000,
+                        "availables": 20
+                    }
+                ]
+            }
+        ]
+    }
+]
