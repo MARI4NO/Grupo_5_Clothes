@@ -20,36 +20,22 @@
     </head>
     <body>
         <%- include("../partials/header");%>
-        <div class="form-container">
-            <h1 class="form-title">Crear Nuevo Evento</h1>
-            <form action="/products/create" method="POST" class="form-box">
+        <main class="form-container">
+            <h1 class="form-title">Crear Evento</h1>
+            <form action="/products" method="POST" class="form-box">
                 <div class="form-group">
-                    <label for="name" class="form-label"
-                        >Nombre del producto:</label
-                    >
+                    <label for="title" class="form-label">Título</label>
                     <input
                         type="text"
-                        id="name"
-                        name="name"
+                        id="title"
+                        name="title"
                         class="form-input"
                         required
                     />
                 </div>
 
                 <div class="form-group">
-                    <label for="description" class="form-label"
-                        >Descripción:</label
-                    >
-                    <textarea
-                        id="description"
-                        name="description"
-                        class="form-input"
-                        required
-                    ></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="image" class="form-label">Imagen:</label>
+                    <label for="image" class="form-label">Imagen</label>
                     <input
                         type="file"
                         id="image"
@@ -61,29 +47,62 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="category" class="form-label">Categoría:</label>
+                    <label for="city" class="form-label">Ciudad</label>
                     <input
                         type="text"
-                        id="category"
-                        name="category"
+                        id="city"
+                        name="city"
                         class="form-input"
                         required
                     />
                 </div>
 
                 <div class="form-group">
-                    <label for="colors" class="form-label">Colores:</label>
+                    <label for="place" class="form-label">Lugar</label>
                     <input
                         type="text"
-                        id="colors"
-                        name="colors"
+                        id="place"
+                        name="place"
                         class="form-input"
                         required
                     />
                 </div>
 
                 <div class="form-group">
-                    <label for="price" class="form-label">Precio:</label>
+                    <label for="address" class="form-label">Direccion</label>
+                    <input
+                        type="text"
+                        id="address"
+                        name="address"
+                        class="form-input"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="date" class="form-label">Fecha</label>
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        class="form-input"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="type" class="form-label">Tipo</label>
+                    <input
+                        type="text"
+                        id="type"
+                        name="type"
+                        class="form-input"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="price" class="form-label">Precio</label>
                     <input
                         type="number"
                         id="price"
@@ -96,12 +115,26 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="availables" class="form-label"
+                        >Cantidad disponible</label
+                    >
+                    <input
+                        type="number"
+                        id="availables"
+                        name="availables"
+                        min="0"
+                        class="form-input"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
                     <button type="submit" class="form-button">
                         Crear Producto
                     </button>
                 </div>
             </form>
-        </div>
+        </main>
         <%- include("../partials/footer");%>
     </body>
 </html>
