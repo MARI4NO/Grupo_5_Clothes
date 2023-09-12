@@ -1,16 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
-/*
-let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+
+let productsFilePath = path.join(__dirname, '../database/products.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-*/
+
 //FUNCIONES
-/*
+
 function deletes(prods){
 	let stringarray= JSON.stringify(prods)
-	fs.writeFileSync(path.join(__dirname,'../data/productsDataBase.json'),stringarray)
-}*/
+	fs.writeFileSync(path.join(__dirname,'../database/products.json'),stringarray)
+}
 
 
 const controller = {
