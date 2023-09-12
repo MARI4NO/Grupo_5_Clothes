@@ -22,7 +22,12 @@
         <%- include("../partials/header");%>
         <main class="form-container">
             <h1 class="form-title">Crear Evento</h1>
-            <form action="/products" method="POST" class="form-box">
+            <form
+                action="/products"
+                method="POST"
+                class="form-box"
+                enctype="multipart/form-data"
+            >
                 <div class="form-group">
                     <label for="title" class="form-label">Título</label>
                     <input

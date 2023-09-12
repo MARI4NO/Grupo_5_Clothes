@@ -1,50 +1,62 @@
 [
     {
         "id": 1,
-        "title": "TAYLOR SWIFT - THE ERAS TOUR",
-        "image": "Taylos.png",
-        "city": "Buenos Aires",
-        "place": "Estadio River Plate",
-        "address": "AV. PRES. FIGUEROA ALCORTA 7597",
-        "date": "9/9/2023",
-        "type": "V.I.P. (MEET & GREET)",
-        "price": 35000,
-        "availables": 20
+        "title": "Fila 9 - Sin Escalas - Tour 2023",
+        "image": "image-1694544036024.png",
+        "city": "Guadalajara",
+        "place": "Cuerda Cultura",
+        "address": "Calle Garibaldi 580",
+        "date": "2023-09-01",
+        "type": "Meet & Greet",
+        "price": 20000,
+        "availables": 300
     },
     {
         "id": 2,
-        "title": "LOLLAPALOZA",
-        "image": "Lolapalloza.png",
+        "title": "Taylor Swift - The eras tour",
+        "image": "image-1694544386397.png",
         "city": "Buenos Aires",
-        "place": "Hipódromo de San Isidro",
-        "address": "Av. Bernabé Márquez 700",
-        "date": "15/3/2023",
-        "type": "V.I.P. (MEET & GREET)",
-        "price": 35000,
-        "availables": 20
+        "place": "Estadio River Plate",
+        "address": "Av. Pres. Figueroa Alcorta 7597",
+        "date": "2023-09-09",
+        "type": "Popular",
+        "price": 10000,
+        "availables": 300
     },
     {
         "id": 3,
-        "title": "THE LUMINIERS - SOUTH AMERICA TOUR",
-        "image": "LUMINIERS.png",
-        "city": "CABA",
+        "title": "The Lumineers - South America Tour 2023",
+        "image": "image-1694544534211.png",
+        "city": "Buenos Aires",
         "place": "Estadio Obras",
         "address": "Av. del Libertador 7395",
-        "date": "1/11/2023",
-        "type": "CAMPO DELANTERO",
-        "price": 25000,
-        "availables": 20
+        "date": "2023-10-01",
+        "type": "Popular",
+        "price": 10000,
+        "availables": 200
     },
     {
         "id": 4,
-        "title": "DUKI",
-        "image": "duki.png",
+        "title": "Lollapalooza Argentina",
+        "image": "image-1694544678404.png",
+        "city": "San Isidro",
+        "place": "Hipódromo de San Isidro",
+        "address": "Av. Bernabé Márquez 700",
+        "date": "2024-03-15",
+        "type": "Meet",
+        "price": 60000,
+        "availables": 400
+    },
+    {
+        "id": 5,
+        "title": "Duki en River",
+        "image": "image-1694544846183.jpg",
         "city": "Buenos Aires",
         "place": "Estadio River Plate",
-        "address": "AV. PRES. FIGUEROA ALCORTA 7597",
-        "date": "2/12/2023",
-        "type": "CAMPO TRASERO",
-        "price": 20000,
-        "availables": 20
+        "address": "Av. Pres. Figueroa Alcorta 7597",
+        "date": "2023-12-02",
+        "type": "Meet",
+        "price": 50000,
+        "availables": 400
     }
 ]
