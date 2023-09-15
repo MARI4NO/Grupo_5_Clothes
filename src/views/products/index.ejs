@@ -21,108 +21,24 @@
         </form>
     </section>
     <section class="body-articulos">
-        <article class="caja-producto">
-            <section>
-                <img src="/img/DUKI.png" alt="FOTO-PRODUCTO" class="foto-producto">
-            </section>
-
-            <section class="descripcion-producto">
-                <section class="descripcion">
-                    <p class="titulo-show">DUKI</p>
-                    <p class="lugar-show">ESTADIO RIVER PLATE</p>
-                </section>
+        <% products.forEach(event => { %>
+            <article class="caja-producto">
                 <section>
-                    <a href="./detail"><button class="boton-comprar">COMPRAR<i
-                                class="ticket-botoncomprar fas fa-ticket-alt"></i></i></button></a>
+                    <img src="/img/products/<%= event.image %>" alt="<%= event.title %>" class="foto-producto">
                 </section>
-            </section>
-        </article>
-
-        <article class="caja-producto">
-            <section>
-                <img src="/img/TAYLOR.png" alt="FOTO-PRODUCTO" class="foto-producto">
-            </section>
-
-            <section class="descripcion-producto">
-                <section class="descripcion">
-                    <p class="titulo-show">TAYLOR SWIFT</p>
-                    <p class="lugar-show">ESTADIO RIVER PLATE</p>
+    
+                <section class="descripcion-producto">
+                    <section class="descripcion">
+                        <p class="titulo-show"><%= event.title %></p>
+                        <p class="lugar-show"><%= event.place %></p>
+                    </section>
+                    <section>
+                        <a href="/products/<%= event.id %>"><button class="boton-comprar">COMPRAR<i
+                                    class="ticket-botoncomprar fas fa-ticket-alt"></i></i></button></a>
+                    </section>
                 </section>
-                <section>
-                    <a href="./detail"><button class="boton-comprar">COMPRAR<i
-                                class="ticket-botoncomprar fas fa-ticket-alt"></i></i></button></a>
-                </section>
-            </section>
-        </article>
-
-        <article class="caja-producto">
-            <section>
-                <img src="/img/LOLA.png" alt="FOTO-PRODUCTO" class="foto-producto">
-            </section>
-
-            <section class="descripcion-producto">
-                <section class="descripcion">
-                    <p class="titulo-show">LOLLAPALOOZA</p>
-                    <p class="lugar-show">HIP. DE SAN ISIDRO</p>
-                </section>
-                <section>
-                    <a href="./detail"><button class="boton-comprar">COMPRAR<i
-                                class="ticket-botoncomprar fas fa-ticket-alt"></i></i></button></a>
-                </section>
-            </section>
-        </article>
-
-        <article class="caja-producto">
-            <section>
-                <img src="/img/RHCP.png" alt="FOTO-PRODUCTO" class="foto-producto">
-            </section>
-
-            <section class="descripcion-producto">
-                <section class="descripcion">
-                    <p class="titulo-show">RHCP!</p>
-                    <p class="lugar-show">ESTADIO RIVER PLATE</p>
-                </section>
-                <section>
-                    <a href="./detail"><button class="boton-comprar">COMPRAR<i
-                                class="ticket-botoncomprar fas fa-ticket-alt"></i></i></button></a>
-                </section>
-            </section>
-        </article>
-
-        <article class="caja-producto">
-            <section>
-                <img src="/img/LUMINERS.png" alt="FOTO-PRODUCTO" class="foto-producto">
-            </section>
-
-            <section class="descripcion-producto">
-                <section class="descripcion">
-                    <p class="titulo-show">THE LUMINEERS</p>
-                    <p class="lugar-show">ESTADIO OBRAS</p>
-                </section>
-                <section>
-                    <a href="./detail"><button class="boton-comprar">COMPRAR<i
-                                class="ticket-botoncomprar fas fa-ticket-alt"></i></i></button></a>
-                </section>
-            </section>
-        </article>
-
-        <article class="caja-producto">
-            <section>
-                <img src="/img/THE WEEKEND.png" alt="FOTO-PRODUCTO" class="foto-producto">
-            </section>
-
-            <section class="descripcion-producto">
-                <section class="descripcion">
-                    <p class="titulo-show">THE WEEKND</p>
-                    <p class="lugar-show">ESTADIO RIVER PLATE</p>
-                </section>
-                <section>
-                    <a href="./detail"><button class="boton-comprar">COMPRAR<i
-                                class="ticket-botoncomprar fas fa-ticket-alt"></i></i></button></a>
-                </section>
-            </section>
-        </article>
-
+            </article>
+        <% }) %>
     </section>
 
     <section class="">

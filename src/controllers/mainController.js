@@ -13,6 +13,15 @@ function addProduct(product) {
         productsString
     );
 }
+
+function updateProducts() {
+    console.log(products);
+    const producstString = JSON.stringify(products);
+    fs.writeFileSync(
+        path.join(__dirname, "../database/products.json"),
+        producstString
+    );
+}
 /*
 function deletes(prods){
 	let stringarray= JSON.stringify(prods)
@@ -21,7 +30,7 @@ function deletes(prods){
 
 const controller = {
     home: (req, res) => {
-        res.render("products/index");
+        res.render("products/index", { products });
     },
     login: (req, res) => {
         res.render("users/login");
@@ -36,6 +45,7 @@ const controller = {
         res.render("products/productCart");
     },
     detalleProducto: (req, res) => {
+        const { id } = req.params;
         res.render("products/productDetail");
     },
     create: (req, res) => {
@@ -67,10 +77,13 @@ const controller = {
 
         addProduct(newProduct);
 
-        res.redirect("/");
+        res.redirect("/products");
     },
     edit: (req, res) => {
-        res.render("edit");
+        const { id } = req.params;
+        const eventFound = products.find((e) => e.id == id);
+
+        res.render("products/edit", { event: eventFound });
     },
     //BORRAR
     destroy: (req, res) => {
@@ -78,6 +91,31 @@ const controller = {
         const newprods = products.filter((prods) => prods.id != id);
         deletes(newprods);
         res.redirect("/");
+    },
+
+    update: (req, res) => {
+        const { id } = req.params;
+
+        const event = req.body;
+        const fileUpdated = req.file;
+
+        const eventStore = products.find((e) => e.id == id);
+
+        eventStore.title = event.title;
+        eventStore.image = fileUpdated
+            ? fileUpdated.filename
+            : eventStore.image;
+        eventStore.city = event.city;
+        eventStore.place = event.place;
+        eventStore.address = event.address;
+        eventStore.date = event.date;
+        eventStore.type = event.type;
+        eventStore.price = Number(event.price);
+        eventStore.availables = Number(event.availables);
+
+        updateProducts();
+
+        res.redirect("/products");
     },
 };
 

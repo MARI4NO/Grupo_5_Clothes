@@ -1,8 +1,7 @@
 /* Estilos para el formulario */
 
 .form-container {
-    margin: 4rem auto;
-    padding: 0 1rem;
+    padding: 4rem 1rem;
     background-color: #fffafb;
     display: flex;
     flex-direction: column;
@@ -57,6 +56,12 @@
 
 .form-button:hover {
     background-color: #333;
+}
+
+.foto-producto {
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
 @media (max-width: 768px) {

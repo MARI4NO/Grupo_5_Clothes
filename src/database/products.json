@@ -49,14 +49,26 @@
     },
     {
         "id": 5,
-        "title": "Duki en River",
+        "title": "Duki",
         "image": "image-1694544846183.jpg",
         "city": "Buenos Aires",
         "place": "Estadio River Plate",
         "address": "Av. Pres. Figueroa Alcorta 7597",
         "date": "2023-12-02",
-        "type": "Meet",
-        "price": 50000,
-        "availables": 400
+        "type": "Platea",
+        "price": 40000,
+        "availables": 300
+    },
+    {
+        "id": 6,
+        "title": "Abel Pintos - Amores y Rarezas",
+        "image": "image-1694745003185.jpg",
+        "city": "Buenos Aires",
+        "place": "Estadio Vélez Sarsfield",
+        "address": "Av. Juan Bautista Justo 9200",
+        "date": "2023-11-18",
+        "type": "Popular",
+        "price": 20000,
+        "availables": 300
     }
 ]

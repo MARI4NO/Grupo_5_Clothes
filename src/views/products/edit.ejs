@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Crear Evento</title>
+        <title>Editar Evento</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -14,19 +14,18 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         />
-
         <link rel="stylesheet" type="text/css" href="/css/styles.css" />
         <link rel="stylesheet" type="text/css" href="/css/create.css" />
     </head>
     <body>
         <%- include("../partials/header");%>
         <main class="form-container">
-            <h1 class="form-title">Crear Evento</h1>
+            <h1 class="form-title">Editar Evento</h1>
             <form
-                action="/products"
+                action="/products/<%= event.id %>?_method=PUT"
                 method="POST"
-                class="form-box"
                 enctype="multipart/form-data"
+                class="form-box"
             >
                 <div class="form-group">
                     <label for="title" class="form-label">Título</label>
@@ -34,6 +33,7 @@
                         type="text"
                         id="title"
                         name="title"
+                        value="<%= event.title %>"
                         class="form-input"
                         required
                     />
@@ -47,15 +47,12 @@
                         name="image"
                         accept="image/*"
                         class="form-input"
-                        required
                     />
-
                     <img
                         id="image-preview"
-                        src="#"
+                        src="/img/products/<%= event.image %>"
                         alt="FOTO-PRODUCTO"
                         class="foto-producto"
-                        style="display: none"
                     />
                 </div>
 
@@ -66,6 +63,7 @@
                         id="city"
                         name="city"
                         class="form-input"
+                        value="<%= event.city %>"
                         required
                     />
                 </div>
@@ -77,6 +75,7 @@
                         id="place"
                         name="place"
                         class="form-input"
+                        value="<%= event.place %>"
                         required
                     />
                 </div>
@@ -88,6 +87,7 @@
                         id="address"
                         name="address"
                         class="form-input"
+                        value="<%= event.address %>"
                         required
                     />
                 </div>
@@ -98,6 +98,7 @@
                         type="date"
                         id="date"
                         name="date"
+                        value="<%= event.date %>"
                         class="form-input"
                         required
                     />
@@ -110,6 +111,7 @@
                         id="type"
                         name="type"
                         class="form-input"
+                        value="<%= event.type %>"
                         required
                     />
                 </div>
@@ -123,6 +125,7 @@
                         min="0"
                         step="0.01"
                         class="form-input"
+                        value="<%= event.price %>"
                         required
                     />
                 </div>
@@ -137,18 +140,17 @@
                         name="availables"
                         min="0"
                         class="form-input"
+                        value="<%= event.availables %>"
                         required
                     />
                 </div>
 
-                <div class="form-group">
-                    <button type="submit" class="form-button">
-                        Crear Producto
-                    </button>
-                </div>
+                <button type="submit" class="form-button">
+                    Guardar Cambios
+                </button>
             </form>
         </main>
-        <%- include("../partials/footer");%>
+        <%- include("../partials/footer"); %>
 
         <script>
             const imageInput = document.getElementById("image");
