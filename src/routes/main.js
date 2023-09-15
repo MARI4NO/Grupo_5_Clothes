@@ -15,7 +15,7 @@ router.get("/register", mainController.register);
 router.get("/misTickets", mainController.misTickets);
 router.get("/miCarrito", mainController.miCarrito);
 router.get("/products", mainController.home);
-router.get("/products/:id", mainController.detalleProducto);
+router.get("/products/:id/detail", mainController.detalleProducto);
 router.get("/products/create", mainController.create);
 router.post("/products", upload.single("image"), mainController.storeProduct);
 router.get("/products/:id/edit", mainController.edit);
