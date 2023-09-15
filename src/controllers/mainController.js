@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const convertToLocaleDate = require("../utils/convertToLocaleDate");
 
 let productsFilePath = path.join(__dirname, "../database/products.json");
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -46,7 +47,11 @@ const controller = {
     },
     detalleProducto: (req, res) => {
         const { id } = req.params;
-        res.render("products/productDetail");
+        const eventFound = products.find((e) => e.id == id);
+        res.render("products/productDetail", {
+            event: eventFound,
+            convertDate: convertToLocaleDate,
+        });
     },
     create: (req, res) => {
         res.render("products/create");
