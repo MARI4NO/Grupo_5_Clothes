@@ -70,5 +70,17 @@
         "type": "Popular",
         "price": 20000,
         "availables": 300
+    },
+    {
+        "id": 7,
+        "title": "Dua Lipa",
+        "image": "image-1694888251539.png",
+        "city": "Buenos Aires",
+        "place": "Campo Argentino de Polo",
+        "address": "Av. del Libertador 4096",
+        "date": "2023-10-16",
+        "type": "Meet & Greet",
+        "price": 50000,
+        "availables": 400
     }
 ]

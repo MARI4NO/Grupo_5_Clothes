@@ -3,50 +3,57 @@
     <!-- HEAD -->
     <%- include("../partials/head"); %>
     <!-- FIN HEAD -->
-<body>
-    <!-- HEADER -->
-    <%- include ("../partials/header");%>
-    <!-- FIN HEADER -->
-    <section>
-        <article class="anuncio">
-            Espacio para el anuncio
-        </article>
-    </section>
+    <body>
+        <!-- HEADER -->
+        <%- include ("../partials/header");%>
+        <!-- FIN HEADER -->
+        <section>
+            <article class="anuncio">Espacio para el anuncio</article>
+        </section>
 
-    <section class="busqueda">
-        <form action="#">
-            <input type="text" name="barra-busq" id="barra-busq" placeholder="Buscar...">
-            <i class="fas fa-search icono-busq"></i>
-            <i class="fa-solid fa-filter icono-busq"></i>
-        </form>
-    </section>
-    <section class="body-articulos">
-        <% products.forEach(event => { %>
+        <section class="busqueda">
+            <form action="#">
+                <input
+                    type="text"
+                    name="barra-busq"
+                    id="barra-busq"
+                    placeholder="Buscar..."
+                />
+                <i class="fas fa-search icono-busq"></i>
+                <i class="fa-solid fa-filter icono-busq"></i>
+            </form>
+        </section>
+        <section class="body-articulos">
+            <% products.forEach(event => { %>
             <article class="caja-producto">
-                <section>
-                    <img src="/img/products/<%= event.image %>" alt="<%= event.title %>" class="foto-producto">
-                </section>
-    
+                <picture class="foto-producto">
+                    <img
+                        src="/img/products/<%= event.image %>"
+                        alt="<%= event.title %>"
+                        class=""
+                    />
+                </picture>
+
                 <section class="descripcion-producto">
                     <section class="descripcion">
                         <p class="titulo-show"><%= event.title %></p>
                         <p class="lugar-show"><%= event.place %></p>
                     </section>
-                    <section>
-                        <a href="/products/<%= event.id %>/detail"><button class="boton-comprar">COMPRAR<i
-                                    class="ticket-botoncomprar fas fa-ticket-alt"></i></i></button></a>
-                    </section>
                 </section>
+                <a href="/products/<%= event.id %>/detail">
+                    <button class="boton-comprar">
+                        COMPRAR<i
+                            class="ticket-botoncomprar fas fa-ticket-alt"
+                        ></i>
+                    </button>
+                </a>
             </article>
-        <% }) %>
-    </section>
+            <% }) %>
+        </section>
 
-    <section class="">
-        <br><br><br><br><br>
-    </section>
-    <!-- FOOTER -->
-    <%- include ("../partials/footer"); %>
-    <!-- FIN FOOTER -->
-</body>
-
+        <section class=""><br /><br /><br /><br /><br /></section>
+        <!-- FOOTER -->
+        <%- include ("../partials/footer"); %>
+        <!-- FIN FOOTER -->
+    </body>
 </html>

@@ -23,11 +23,14 @@ function updateProducts() {
         producstString
     );
 }
-/*
-function deletes(prods){
-	let stringarray= JSON.stringify(prods)
-	fs.writeFileSync(path.join(__dirname,'../data/productsDataBase.json'),stringarray)
-}*/
+
+function deletes(prods) {
+    let stringarray = JSON.stringify(prods);
+    fs.writeFileSync(
+        path.join(__dirname, "../database/products.json"),
+        stringarray
+    );
+}
 
 const controller = {
     home: (req, res) => {
@@ -95,7 +98,7 @@ const controller = {
         const id = req.params.id;
         const newprods = products.filter((prods) => prods.id != id);
         deletes(newprods);
-        res.redirect("/");
+        res.redirect("/products");
     },
 
     update: (req, res) => {

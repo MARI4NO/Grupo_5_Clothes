@@ -156,11 +156,11 @@
                         <span>Comprar</span> <i class="fa-solid fa-ticket"></i>
                     </button>
                     <form
-                        action="/delete/******?_method=DELETE"
+                        action="/delete/<%= event.id %>?_method=DELETE"
                         method="POST"
                         style="display: inline-flex"
                     >
-                        <button type="submit" class="action-button delete">
+                        <button type="submit" class="btn-delete">
                             ELIMINAR
                         </button>
                     </form>
