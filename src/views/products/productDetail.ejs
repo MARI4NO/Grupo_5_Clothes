@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Product Details</title>
+        <title><%= event.title %></title>
 
         <!-- Styles -->
         <link rel="stylesheet" href="/css/productDetail.css" />
@@ -31,24 +31,29 @@
         <main>
             <section class="detail-container">
                 <picture class="detail-banner">
-                    <img src="/img/Taylor.png" alt="Banner de Taylor Swift" />
+                    <img
+                        src="/img/products/<%= event.image %>"
+                        alt="<%= event.title %>"
+                    />
                 </picture>
                 <article class="detail-info">
-                    <h2 class="detail-title font-bold">
-                        Taylor Swift - The eras tour
-                    </h2>
+                    <h2 class="detail-title font-bold"><%= event.title %></h2>
                     <div class="detail-description">
                         <i class="fa-solid fa-location-dot location-icon"></i>
                         <div class="uppercase font-medium">
-                            <p><span>Lugar: </span>Estadio River Plate</p>
-                            <p>
-                                <span>Direccion: </span>Av. Pres. Figueroa
-                                Alcorta 7597
-                            </p>
-                            <p><span>Provincia: </span>Buenos Aires</p>
+                            <p><span>Lugar: </span><%= event.place %></p>
+                            <p><span>Direccion: </span><%= event.address %></p>
+                            <p><span>Ciudad: </span><%= event.city %></p>
                         </div>
                     </div>
                     <div class="detail-select-date">
+                        <p class="uppercase font-ligth text-2xl">
+                            Fecha:
+                            <span class="font-medium"
+                                ><%= convertDate(event.date) %></span
+                            >
+                        </p>
+                        <!--
                         <span class="uppercase font-ligth"
                             >Seleccionar fecha:</span
                         >
@@ -60,7 +65,7 @@
                             <article class="available-date"></article>
                             <article class="available-date"></article>
                         </section>
-                    </div>
+                    --></div>
                     <div class="detail-table-container">
                         <table class="table-prices">
                             <thead>
@@ -75,9 +80,9 @@
                             <tbody>
                                 <tr class="tr-body">
                                     <td class="text-start">
-                                        V.I.P. (MEET & GREET)
+                                        <%= event.type %>
                                     </td>
-                                    <td>$ 35.000</td>
+                                    <td>$ <%= event.price %></td>
                                     <td>
                                         <input
                                             type="number"
@@ -86,6 +91,7 @@
                                         />
                                     </td>
                                 </tr>
+                                <!--
                                 <tr class="tr-body">
                                     <td class="text-start">CAMPO DELANTERO</td>
                                     <td>$ 25.000</td>
@@ -141,7 +147,7 @@
                                         />
                                     </td>
                                 </tr>
-                            </tbody>
+                            --></tbody>
                         </table>
                     </div>
                 </article>
@@ -149,8 +155,14 @@
                     <button class="btn-buy uppercase font-medium">
                         <span>Comprar</span> <i class="fa-solid fa-ticket"></i>
                     </button>
-                    <form action="/delete/******?_method=DELETE" method="POST" style="display: inline-flex">
-                        <button type="submit" class="action-button delete">ELIMINAR</button>
+                    <form
+                        action="/delete/<%= event.id %>?_method=DELETE"
+                        method="POST"
+                        style="display: inline-flex"
+                    >
+                        <button type="submit" class="btn-delete">
+                            ELIMINAR
+                        </button>
                     </form>
                 </div>
             </section>
