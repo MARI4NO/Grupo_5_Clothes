@@ -1,9 +1,24 @@
+const fs = require("fs");
+const path = require("path");
+
+let productsFilePath = path.join(__dirname, "../database/users.json");
+
+// usuarios desde el JSON
+let users = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+
 const userController = {
-    login: (req, res) => {
+    loginView: (req, res) => {
         res.render("users/login");
     },
-    register: (req, res) => {
+    login: (req, res) => {
+        // Codigo para el logueo de un usuario
+    },
+    registerView: (req, res) => {
         res.render("users/register");
+    },
+    register: (req, res) => {
+        // Codigo para el registro de un usuario
+        console.log(req.body);
     },
     misTickets: (req, res) => {
         res.render("users/myTickets");
