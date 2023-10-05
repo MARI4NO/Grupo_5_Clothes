@@ -1,6 +1,10 @@
 // ************ REQUIRES ****************
 const path = require("path");
 const express = require("express");
+const bodyParser = require('body-parser');
+const multer = require('multer');
+const bcrypt = require('bcrypt');
+const fs = require('fs');
 
 // ************ express() ************
 const app = express();
@@ -13,6 +17,55 @@ const PORT = 3003;
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// **********Configurar Multer para gestionar la subida de imágenes de perfil**************
+const storage = multer.diskStorage({
+  destination: 'uploads/',
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
+app.get('/register', (req, res) => {
+  res.render('users/register');
+});
+
+app.post('/register', upload.single('image'), (req, res) => {
+  const { firstName, lastName, email, password } = req.body;
+  const profileImage = req.file ? req.file.filename : null;
+
+  bcrypt.hash(password, 10, (err, hash) => {
+    if (err) throw err;
+
+    const userData = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: hash,
+      profileImage: profileImage
+    };
+
+    fs.readFile('users.json', 'utf8', (readErr, data) => {
+      if (readErr) throw readErr;
+
+      let users = [];
+      if (data) {
+        users = JSON.parse(data);
+      }
+
+      users.push(userData);
+
+      fs.writeFile('users.json', JSON.stringify(users), 'utf8', (writeErr) => {
+        if (writeErr) throw writeErr;
+        res.send('Usuario registrado con éxito.');
+      });
+    });
+  });
+});
 
 // ************ Template Engine ************
 app.set("view engine", "ejs");
