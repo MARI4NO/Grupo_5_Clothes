@@ -25,8 +25,8 @@ const userRouter = require("./routes/userRoutes");
 
 //usando las rutas de main.js en app.js RUTAS
 app.use("/", mainRouter);
-app.use("/products", productRouter);
-app.use("/users", userRouter);
+app.use("/", productRouter);
+app.use("/", userRouter);
 
 // ************ Start Server **************
 app.listen(PORT, () => {

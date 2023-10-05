@@ -78,5 +78,12 @@
         "email": "hselley9@sbwire.com",
         "password": "mB619#2>I#",
         "role": "admin"
+    },
+    {
+        "id": 11,
+        "firstName": "juan",
+        "lastName": "martinez",
+        "email": "juan@mail.es",
+        "password": "$2b$10$iD.Wk99GFHUQIui7JLk4D.7y4wFZE2OzLcADi5kBP1CXxmvFvax7G"
     }
 ]

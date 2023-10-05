@@ -3,10 +3,10 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 
 // Ruta del archivo JSON de usuarios
-const usersFilePath = path.join(__dirname, '../database/users.json');
+const usersFilePath = path.join(__dirname, "../database/users.json");
 
 // usuarios desde el JSON
-let users = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 const userController = {
     loginView: (req, res) => {
@@ -18,15 +18,16 @@ const userController = {
     registerView: (req, res) => {
         res.render("users/register");
     },
-   register: async (req, res) => {
+    register: async (req, res) => {
         try {
             const { firstName, lastName, email, password } = req.body;
-            
-             // Encriptar la contraseña
+
+            // Encriptar la contraseña
             const hashedPassword = await bcrypt.hash(password, 10);
 
             // Crear el objeto de usuario
             const newUser = {
+                id: users.length + 1,
                 firstName,
                 lastName,
                 email,
@@ -39,7 +40,7 @@ const userController = {
             // Guardar la lista actualizada en el archivo JSON
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
 
-            console.log('Usuario registrado:', newUser);
+            console.log("Usuario registrado:", newUser);
 
             res.redirect("/login"); // Redirigir a la página de inicio de sesión
         } catch (error) {

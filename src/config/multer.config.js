@@ -2,20 +2,35 @@ const path = require("path");
 const multer = require("multer");
 
 // *********** Configuración MULTER ******************
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        const pathUpload = path.resolve(__dirname, "../../public/img/products");
-        cb(null, pathUpload);
-    },
-    filename: function (req, file, cb) {
-        console.log(file);
-        const fileName = `${file.fieldname}-${Date.now()}${path.extname(
-            file.originalname
-        )}`;
-        cb(null, fileName);
-    },
+const destinationUsers = function (req, file, cb) {
+    const pathUpload = path.resolve(__dirname, "../../public/img/users");
+    cb(null, pathUpload);
+};
+
+const destinationProducts = function (req, file, cb) {
+    const pathUpload = path.resolve(__dirname, "../../public/img/users");
+    cb(null, pathUpload);
+};
+
+const filename = function (req, file, cb) {
+    console.log(file);
+    const fileName = `${file.fieldname}-${Date.now()}${path.extname(
+        file.originalname
+    )}`;
+    cb(null, fileName);
+};
+
+const storageUsers = multer.diskStorage({
+    destination: destinationUsers,
+    filename,
 });
 
-const upload = multer({ storage });
+const storageProducts = multer.diskStorage({
+    destination: destinationProducts,
+    filename,
+});
 
-module.exports = upload;
+const uploadUser = multer({ storage: storageUsers });
+const uploadProduct = multer({ storage: storageProducts });
+
+module.exports = { uploadProduct, uploadUser };
