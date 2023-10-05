@@ -1,12 +1,5 @@
 const express = require("express");
-const userRouter = express.Router();
-
-// Configuración de multer
-const upload = require("../config/multer.config");
-
-// Ruta para manejar el registro de usuarios
-
-//importando controlador
+const userRouter = express.Router();const upload = require("../config/multer.config");
 const usersController = require("../controllers/userController");
 
 userRouter.get("/login", usersController.loginView);
