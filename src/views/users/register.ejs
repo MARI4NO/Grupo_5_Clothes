@@ -12,7 +12,12 @@
                 <h2 class="register-title">
                     <i class="fa-regular fa-user"></i> Registro
                 </h2>
-                <form class="register-form">
+                 <form
+                    class="register-form"
+                    action="/register"
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
                     <label for="first-name">Nombre</label>
                     <input
                         type="text"
@@ -39,6 +44,25 @@
                         name="password"
                         required
                     />
+                    <div class="form-group">
+                        <label for="image" class="form-label">Imagen</label>
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            accept="image/*"
+                            class="form-input"
+                            required
+                        />
+
+                        <img
+                            id="image-preview"
+                            src="#"
+                            alt="FOTO-PRODUCTO"
+                            class="foto-producto"
+                            style="display: none"
+                        />
+                    </div>
 
                     <button type="submit" class="register-button">
                         Regístrate
@@ -49,5 +73,25 @@
         <!-- FOOTER -->
         <%- include("../partials/footer"); %>
         <!-- FIN FOOTER -->
+  <script>
+            const imageInput = document.getElementById("image");
+            const imagePreview = document.getElementById("image-preview");
+
+            imageInput.addEventListener("change", function (event) {
+                const selectedImage = event.target.files[0];
+                if (selectedImage) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = "block";
+                    };
+                    reader.readAsDataURL(selectedImage);
+                } else {
+                    imagePreview.style.display = "none";
+                }
+            });
+        </script>
+    </body>
+</html>
     </body>
 </html>
