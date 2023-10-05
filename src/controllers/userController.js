@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 // Ruta del archivo JSON de usuarios
 const usersFilePath = path.join(__dirname, "../database/users.json");
