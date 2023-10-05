@@ -1,19 +1,40 @@
 const fs = require("fs");
 const path = require("path");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 
 // Ruta del archivo JSON de usuarios
 const usersFilePath = path.join(__dirname, "../database/users.json");
 
 // usuarios desde el JSON
 let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-
+const User=require("../models/userModel");
 const userController = {
     loginView: (req, res) => {
         res.render("users/login");
     },
     login: (req, res) => {
-        // Codigo para el logueo de un usuario
+        let userToLogin=User.findByField("email", req.body.email);
+
+        if(userToLogin){
+            let CorrectPassword=bcryptjs.compareSync(req.body.password, userToLogin.password);
+            if (CorrectPassword){
+                return res.redirect("/")
+            }
+            return res.render("users/login", {
+                errors: {
+                    email: {
+                        msg: "LA CONSTRASEÑA ES INCORRRECTA"
+                    }
+                }
+            });
+        }
+        return res.render("users/login", {
+            errors: {
+                email: {
+                    msg: "USUARIO NO ENCONTRADO"
+                }
+            }
+        });
     },
     registerView: (req, res) => {
         res.render("users/register");
