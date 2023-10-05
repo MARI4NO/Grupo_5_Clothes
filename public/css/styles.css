@@ -356,6 +356,11 @@ a {
 }
 
 /* Estilos para el login */
+.errors-form{
+    color: red;
+    font-size: 12px;
+}
+
 .login-container {
     display: flex;
     justify-content: center;
