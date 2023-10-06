@@ -18,6 +18,7 @@ const userController = {
         if(userToLogin){
             let CorrectPassword=bcryptjs.compareSync(req.body.password, userToLogin.password);
             if (CorrectPassword){
+                req.session.usuario=userToLogin
                 return res.redirect("/")
             }
             return res.render("users/login", {
