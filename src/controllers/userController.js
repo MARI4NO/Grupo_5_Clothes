@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const bcrypt = require("bcryptjs");
+const bcryptjs = require("bcryptjs");
 
 // Ruta del archivo JSON de usuarios
 const usersFilePath = path.join(__dirname, "../database/users.json");
@@ -44,7 +44,7 @@ const userController = {
             const { firstName, lastName, email, password } = req.body;
 
             // Encriptar la contraseña
-            const hashedPassword = await bcrypt.hash(password, 10);
+            const hashedPassword = await bcryptjs.hash(password, 10);
 
             // Crear el objeto de usuario
             const newUser = {
