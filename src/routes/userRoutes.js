@@ -13,5 +13,6 @@ userRouter.post(
 );
 userRouter.get("/misTickets", usersController.misTickets);
 userRouter.get("/miCarrito", usersController.miCarrito);
+userRouter.get("/myPerfil/:id", usersController.miPerfil)
 
 module.exports = userRouter;

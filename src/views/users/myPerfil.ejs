@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <!-- HEAD -->
+       <%- include('../partials/head'); %>
+       <!-- FIN HEAD -->
+</head>
+<body>
+    <!-- HEADER -->
+    <%- include("../partials/header"); %>
+    <!-- FIN HEADER -->
+    <section>
+    <h2 class="login-title">
+        <i class="fa-regular fa-user"></i> PERFIL
+    </h2>
+    </section>
+    <article>
+        <img src=""  />
+    </article>
+    <article>
+        <p>NOMBRE
+        <%= miperfil.firstName %>
+        </p>
+    </article>
+    <article>
+        <p>APELLIDO
+        <%= miperfil.lastName %>
+        </p>
+    </article>
+    <article>
+        <p>EMAIL
+        <%= miperfil.email %>
+        </p>
+    </article>
+    </section>
+    <section>
+        <a href="/misTickets"><button>MIS TICKETS <i class="fa-solid fa-ticket"></i></button></a> 
+    </section>
+    <!-- FOOTER -->
+    <%- include ("../partials/footer"); %>
+    <!-- FIN FOOTER -->
+</body>
+</html>

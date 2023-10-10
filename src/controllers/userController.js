@@ -75,6 +75,13 @@ const userController = {
     miCarrito: (req, res) => {
         res.render("products/productCart");
     },
+    miPerfil: (req,res)=>{
+        const id=req.params.id;
+        const perfil=users.find(miperfil=>{
+            return miperfil.id==id;
+        })
+        res.render("users/myPerfil",{miperfil:perfil});
+    }
 };
 
 module.exports = userController;
