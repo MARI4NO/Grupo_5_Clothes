@@ -18,6 +18,7 @@ const userController = {
         if(userToLogin){
             let CorrectPassword=bcryptjs.compareSync(req.body.password, userToLogin.password);
             if (CorrectPassword){
+                req.session.usuario=userToLogin
                 return res.redirect("/")
             }
             return res.render("users/login", {
@@ -44,7 +45,7 @@ const userController = {
             const { firstName, lastName, email, password } = req.body;
 
             // Encriptar la contraseña
-            const hashedPassword = await bcrypt.hash(password, 10);
+            const hashedPassword = await bcryptjs.hash(password, 10);
 
             // Crear el objeto de usuario
             const newUser = {

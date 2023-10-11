@@ -92,5 +92,12 @@
     "lastName": "Acosta",
     "email": "josefina@gmail.com",
     "password": "$2a$10$u/Ikl1O3MhtEJUU4yBKopOmskQFbh2AsS0HM2eKmDXAv0Mems8EKO"
+  },
+  {
+    "id": 13,
+    "firstName": "Francisco",
+    "lastName": "Medrano",
+    "email": "francisco.medrano.jy@gmail.com",
+    "password": "$2a$10$oGza.I52SlYkFDJi6Fr/U.wV61EofpSAWGc9smU2xno7D7crB6SQO"
   }
 ]
