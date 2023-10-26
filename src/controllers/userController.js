@@ -7,44 +7,53 @@ const usersFilePath = path.join(__dirname, "../database/users.json");
 
 // usuarios desde el JSON
 let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-const User=require("../models/userModel");
+const User = require("../models/userModel");
 const userController = {
     loginView: (req, res) => {
-        res.render("users/login");
+        const showLinks = req.session.usuario ? true : false;
+        res.render("users/login", { showLinks });
     },
     login: (req, res) => {
-        let userToLogin=User.findByField("email", req.body.email);
+        const showLinks = req.session.usuario ? true : false;
+        let userToLogin = User.findByField("email", req.body.email);
 
-        if(userToLogin){
-            let CorrectPassword=bcryptjs.compareSync(req.body.password, userToLogin.password);
-            if (CorrectPassword){
-                return res.redirect("/")
+        if (userToLogin) {
+            let CorrectPassword = bcryptjs.compareSync(
+                req.body.password,
+                userToLogin.password
+            );
+            if (CorrectPassword) {
+                req.session.usuario = userToLogin;
+                return res.redirect("/");
             }
             return res.render("users/login", {
                 errors: {
                     email: {
-                        msg: "LA CONSTRASEÑA ES INCORRRECTA"
-                    }
-                }
+                        msg: "LA CONSTRASEÑA ES INCORRRECTA",
+                    },
+                },
+                showLinks,
             });
         }
         return res.render("users/login", {
             errors: {
                 email: {
-                    msg: "USUARIO NO ENCONTRADO"
-                }
-            }
+                    msg: "USUARIO NO ENCONTRADO",
+                },
+            },
+            showLinks,
         });
     },
     registerView: (req, res) => {
-        res.render("users/register");
+        const showLinks = req.session.usuario ? true : false;
+        res.render("users/register", { showLinks });
     },
     register: async (req, res) => {
         try {
             const { firstName, lastName, email, password } = req.body;
 
             // Encriptar la contraseña
-            const hashedPassword = await bcrypt.hash(password, 10);
+            const hashedPassword = await bcryptjs.hash(password, 10);
 
             // Crear el objeto de usuario
             const newUser = {
@@ -70,18 +79,34 @@ const userController = {
         }
     },
     misTickets: (req, res) => {
-        res.render("users/myTickets");
+        const { usuario } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+
+        res.render("users/myTickets", { idUsuario: usuario.id, showLinks });
     },
     miCarrito: (req, res) => {
-        res.render("products/productCart");
+        const { usuario } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+
+        res.render("products/productCart", {
+            idUsuario: usuario.id,
+            showLinks,
+        });
     },
-    miPerfil: (req,res)=>{
-        const id=req.params.id;
-        const perfil=users.find(miperfil=>{
-            return miperfil.id==id;
-        })
-        res.render("users/myPerfil",{miperfil:perfil});
-    }
+    miPerfil: (req, res) => {
+        const { usuario } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+
+        const id = usuario.id;
+        const perfil = users.find((miperfil) => {
+            return miperfil.id == id;
+        });
+        res.render("users/myPerfil", {
+            miperfil: perfil,
+            idUsuario: usuario.id,
+            showLinks,
+        });
+    },
 };
 
 module.exports = userController;

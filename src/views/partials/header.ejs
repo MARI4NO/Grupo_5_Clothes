@@ -4,8 +4,11 @@
     </a>
     <nav class="nav-icons">
         <ul class="desktop-icons">
+            <% if(showLinks){ %>
             <li>
-                <a href="/myPerfil"><i class="fa-regular fa-user"></i></a>
+                <a href="/myPerfil/<%= idUsuario %>"
+                    ><i class="fa-regular fa-user"></i
+                ></a>
             </li>
             <li>
                 <a href="/misTickets"><i class="fa-solid fa-ticket"></i></a>
@@ -16,12 +19,14 @@
             <li>
                 <a href="/miCarrito"><i class="fas fa-shopping-cart"></i></a>
             </li>
+            <% } %>
         </ul>
         <div class="dropdown">
             <button class="dropdown-button">
                 <i class="fa-solid fa-bars"></i>
             </button>
             <div class="dropdown-content">
+                <% if(showLinks){ %>
                 <a href="#"><i class="fa-regular fa-user"></i> Mi cuenta</a>
                 <a href="/misTickets"
                     ><i class="fa-solid fa-ticket"></i> Mis tickets</a
@@ -30,6 +35,7 @@
                 <a href="/miCarrito"
                     ><i class="fas fa-shopping-cart"></i>Carrito</a
                 >
+                <% } %>
             </div>
         </div>
     </nav>
