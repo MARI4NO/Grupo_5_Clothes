@@ -12,7 +12,8 @@ userRouter.post(
     uploadUser.single("image"),
     usersController.register
 );
-userRouter.get("/misTickets",log,usersController.misTickets);
+userRouter.get("/misTickets", log, usersController.misTickets);
 userRouter.get("/miCarrito",log, usersController.miCarrito);
+userRouter.get("/myPerfil/:id", log, usersController.miPerfil)
 
 module.exports = userRouter;

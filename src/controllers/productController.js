@@ -34,18 +34,37 @@ function deletes(prods) {
 
 const productController = {
     list: (req, res) => {
-        res.render("products/index", { products });
+        const { usuario } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+
+        res.render("products/index", {
+            products,
+            showLinks,
+            idUsuario: usuario ? usuario.id : 0,
+        });
     },
     detalleProducto: (req, res) => {
         const { id } = req.params;
         const eventFound = products.find((e) => e.id == id);
+
+        const { usuario } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+
         res.render("products/productDetail", {
             event: eventFound,
             convertDate: convertToLocaleDate,
+            showLinks,
+            idUsuario: usuario ? usuario.id : 0,
         });
     },
     create: (req, res) => {
-        res.render("products/create");
+        const { usuario } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+
+        res.render("products/create", {
+            showLinks,
+            idUsuario: usuario ? usuario.id : 0,
+        });
     },
     storeProduct: (req, res, next) => {
         const form = req.body;
@@ -79,7 +98,14 @@ const productController = {
         const { id } = req.params;
         const eventFound = products.find((e) => e.id == id);
 
-        res.render("products/edit", { event: eventFound });
+        const { usuario } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+
+        res.render("products/edit", {
+            event: eventFound,
+            showLinks,
+            idUsuario: usuario ? usuario.id : 0,
+        });
     },
     destroy: (req, res) => {
         const id = req.params.id;
