@@ -6,16 +6,16 @@ module.exports=(sequelize, DataTypes)=>{
             primaryKey: true,
             allowNull: false
         },
-        user_id:{
+        product_id:{
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        totalPrice:{
-            type: DataTypes.DECIMAL,
+        sale_id:{
+            type: DataTypes.INTEGER,
             allowNull: false
         },
-        status:{
-            type: DataTypes.STRING(100),
+        cant:{
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     };
@@ -23,6 +23,18 @@ module.exports=(sequelize, DataTypes)=>{
         tableName: "sales_products",
         timestamps: false
     }
-    const Usuario=sequelize.define("Sales_Products", cols, config);
-return Usuario;
+    const Sale_Product=sequelize.define("Sales_Products", cols, config);
+    Sale_Product.associate= function(models){
+        Sale_Product.hasMany(models.Products, {
+            as: "products",
+            foreignKey: "product_id"
+        })
+    }
+    Sale_Product.associate= function(models){
+        Sale_Product.hasMany(models.Sales, {
+            as: "sales",
+            foreignKey: "sale_id"
+        })
+    }
+return Sale_Product;
 }

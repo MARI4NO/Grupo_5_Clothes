@@ -27,6 +27,12 @@ module.exports=(sequelize, DataTypes)=>{
         tableName: "users",
         timestamps: false
     }
-    const Usuario=sequelize.define("Users", cols, config);
-return Usuario;
+    const User=sequelize.define("Users", cols, config);
+    User.associate= function(models){
+        User.belongsTo(models.Sales, {
+            as: "sales",
+            foreignKey: "user_id"
+        })
+    }
+return User;
 }
