@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const convertToLocaleDate = require("../utils/convertToLocaleDate");
 
+const db = require("../database/models");
+
 let productsFilePath = path.join(__dirname, "../database/products.json");
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
@@ -77,8 +79,7 @@ const productController = {
             return next(error);
         }
 
-        const newProduct = {
-            id: products.length + 1,
+        db.Products.create({
             title: form.title,
             image: fileUpload.filename,
             city: form.city,
@@ -88,11 +89,11 @@ const productController = {
             type: form.type,
             price: Number(form.price),
             availables: Number(form.availables),
-        };
-
-        addProduct(newProduct);
-
-        res.redirect("/products");
+        })
+            .then((data) => {
+                res.redirect("/products");
+            })
+            .catch((err) => console.log(err));
     },
     edit: (req, res) => {
         const { id } = req.params;
