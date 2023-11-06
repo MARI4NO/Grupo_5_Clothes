@@ -22,7 +22,7 @@ module.exports=(sequelize, DataTypes)=>{
             type: DataTypes.STRING(200),
             allowNull: false
         },
-        adress:{
+        address:{
             type: DataTypes.STRING(250),
             allowNull: false
         },
@@ -45,7 +45,7 @@ module.exports=(sequelize, DataTypes)=>{
     };
     let config={
         tableName: "products",
-        timestamps: true
+        timestamps: false
     }
     const Product=sequelize.define("Products", cols, config);
     Product.associate= function(models){
