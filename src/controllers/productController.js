@@ -109,10 +109,13 @@ const productController = {
         });
     },
     destroy: (req, res) => {
-        const id = req.params.id;
-        const newprods = products.filter((prods) => prods.id != id);
-        deletes(newprods);
-        res.redirect("/products");
+        const { id } = req.params;
+
+        db.Products.destroy({ where: { id } })
+            .then((data) => {
+                res.redirect("/products");
+            })
+            .catch((err) => console.log(err));
     },
 
     update: (req, res) => {
