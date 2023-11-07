@@ -109,14 +109,16 @@ const userController = {
         const showLinks = req.session.usuario ? true : false;
 
         const id = usuario.id;
-        const perfil = users.find((miperfil) => {
-            return miperfil.id == id;
-        });
-        res.render("users/myPerfil", {
-            miperfil: perfil,
-            idUsuario: usuario.id,
-            showLinks,
-        });
+
+        db.Users.findByPk(id)
+            .then((user) => {
+                res.render("users/myPerfil", {
+                    miperfil: user,
+                    idUsuario: usuario.id,
+                    showLinks,
+                });
+            })
+            .catch((err) => console.log(err));
     },
 };
 
