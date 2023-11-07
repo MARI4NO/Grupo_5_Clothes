@@ -4,37 +4,7 @@ const convertToLocaleDate = require("../utils/convertToLocaleDate");
 
 const db = require("../database/models");
 
-const PATH_PUBLIC_IMAGES = "./public/img/products/";
-
-let productsFilePath = path.join(__dirname, "../database/products.json");
-let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-
-//FUNCIONES
-function addProduct(product) {
-    products.push(product);
-    const productsString = JSON.stringify(products);
-    fs.writeFileSync(
-        path.join(__dirname, "../database/products.json"),
-        productsString
-    );
-}
-
-function updateProducts() {
-    console.log(products);
-    const producstString = JSON.stringify(products);
-    fs.writeFileSync(
-        path.join(__dirname, "../database/products.json"),
-        producstString
-    );
-}
-
-function deletes(prods) {
-    let stringarray = JSON.stringify(prods);
-    fs.writeFileSync(
-        path.join(__dirname, "../database/products.json"),
-        stringarray
-    );
-}
+const PATH_PUBLIC_IMAGES = path.join(__dirname, "../../public/img/products/");
 
 const productController = {
     list: (req, res) => {

@@ -1,15 +1,7 @@
-const fs = require("fs");
-const path = require("path");
 const bcryptjs = require("bcryptjs");
 
 const db = require("../database/models");
 
-// Ruta del archivo JSON de usuarios
-const usersFilePath = path.join(__dirname, "../database/users.json");
-
-// usuarios desde el JSON
-let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-const User = require("../models/userModel");
 const userController = {
     loginView: (req, res) => {
         const showLinks = req.session.usuario ? true : false;
