@@ -39,11 +39,15 @@ const productController = {
         const { usuario } = req.session;
         const showLinks = req.session.usuario ? true : false;
 
-        res.render("products/index", {
-            products,
-            showLinks,
-            idUsuario: usuario ? usuario.id : 0,
-        });
+        db.Products.findAll()
+            .then((events) => {
+                res.render("products/index", {
+                    products: events,
+                    showLinks,
+                    idUsuario: usuario ? usuario.id : 0,
+                });
+            })
+            .catch((err) => console.log(err));
     },
     detalleProducto: (req, res) => {
         const { id } = req.params;
