@@ -121,23 +121,24 @@ const productController = {
         const event = req.body;
         const fileUpdated = req.file;
 
-        const eventStore = products.find((e) => e.id == id);
-
-        eventStore.title = event.title;
-        eventStore.image = fileUpdated
-            ? fileUpdated.filename
-            : eventStore.image;
-        eventStore.city = event.city;
-        eventStore.place = event.place;
-        eventStore.address = event.address;
-        eventStore.date = event.date;
-        eventStore.type = event.type;
-        eventStore.price = Number(event.price);
-        eventStore.availables = Number(event.availables);
-
-        updateProducts();
-
-        res.redirect("/products");
+        db.Products.update(
+            {
+                title: event.title,
+                image: fileUpdated ? fileUpdated.filename : event.image,
+                city: event.city,
+                place: event.place,
+                address: event.address,
+                date: event.date,
+                type: event.type,
+                price: Number(event.price),
+                availables: Number(event.availables),
+            },
+            { where: { id } }
+        )
+            .then((data) => {
+                res.redirect("/products");
+            })
+            .catch((err) => console.log(err));
     },
 };
 
