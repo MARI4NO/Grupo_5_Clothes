@@ -4,6 +4,8 @@ const convertToLocaleDate = require("../utils/convertToLocaleDate");
 
 const db = require("../database/models");
 
+const PATH_PUBLIC_IMAGES = "./public/img/products/";
+
 let productsFilePath = path.join(__dirname, "../database/products.json");
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
@@ -51,17 +53,20 @@ const productController = {
     },
     detalleProducto: (req, res) => {
         const { id } = req.params;
-        const eventFound = products.find((e) => e.id == id);
 
         const { usuario } = req.session;
         const showLinks = req.session.usuario ? true : false;
 
-        res.render("products/productDetail", {
-            event: eventFound,
-            convertDate: convertToLocaleDate,
-            showLinks,
-            idUsuario: usuario ? usuario.id : 0,
-        });
+        db.Products.findByPk(id)
+            .then((event) => {
+                res.render("products/productDetail", {
+                    event,
+                    convertDate: convertToLocaleDate,
+                    showLinks,
+                    idUsuario: usuario ? usuario.id : 0,
+                });
+            })
+            .catch((err) => console.log(err));
     },
     create: (req, res) => {
         const { usuario } = req.session;
@@ -115,9 +120,26 @@ const productController = {
     destroy: (req, res) => {
         const { id } = req.params;
 
-        db.Products.destroy({ where: { id } })
-            .then((data) => {
-                res.redirect("/products");
+        db.Products.findByPk(id)
+            .then((event) => {
+                const pathFile = `${PATH_PUBLIC_IMAGES}${event.image}`;
+
+                // verifico si existe la imagen correspondiente al evento
+                const existFile = fs.existsSync(pathFile);
+
+                if (existFile) {
+                    // Primero elimino la imagen correspondiente al evento
+                    fs.unlinkSync(pathFile);
+
+                    // elimino el evento de la base de datos
+                    db.Products.destroy({ where: { id } })
+                        .then((data) => {
+                            res.redirect("/products");
+                        })
+                        .catch((err) => console.log(err));
+                } else {
+                    console.log("La imagen no existe");
+                }
             })
             .catch((err) => console.log(err));
     },
