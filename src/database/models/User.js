@@ -1,38 +1,42 @@
-module.exports=(sequelize, DataTypes)=>{
-    let cols={
-        id:{
-            type:DataTypes.INTEGER,
+module.exports = (sequelize, DataTypes) => {
+    let cols = {
+        id: {
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
         },
-        firstName:{
+        firstName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
-        lastName:{
+        lastName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
-        email:{
+        email: {
             type: DataTypes.STRING(200),
-            allowNull: false
+            allowNull: false,
         },
-        password:{
+        password: {
             type: DataTypes.STRING(100),
-            allowNull: false
-        }
+            allowNull: false,
+        },
+        image: {
+            type: DataTypes.STRING(150),
+            allowNull: false,
+        },
     };
-    let config={
+    let config = {
         tableName: "users",
-        timestamps: false
-    }
-    const User=sequelize.define("Users", cols, config);
-    User.associate= function(models){
+        timestamps: false,
+    };
+    const User = sequelize.define("Users", cols, config);
+    User.associate = function (models) {
         User.belongsTo(models.Sales, {
             as: "sales",
-            foreignKey: "user_id"
-        })
-    }
-return User;
-}
+            foreignKey: "user_id",
+        });
+    };
+    return User;
+};
