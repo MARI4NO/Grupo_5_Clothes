@@ -16,34 +16,39 @@ const userController = {
         res.render("users/login", { showLinks });
     },
     login: (req, res) => {
+        const { email, password } = req.body;
         const showLinks = req.session.usuario ? true : false;
-        let userToLogin = User.findByField("email", req.body.email);
 
-        if (userToLogin) {
-            let CorrectPassword = bcryptjs.compareSync(
-                req.body.password,
-                userToLogin.password
-            );
-            if (CorrectPassword) {
-                req.session.usuario = userToLogin;
-                return res.redirect("/");
+        db.Users.findOne({ where: { email } }).then((user) => {
+            if (user) {
+                let correctPassword = bcryptjs.compareSync(
+                    password,
+                    user.password
+                );
+
+                if (correctPassword) {
+                    req.session.usuario = user;
+                    return res.redirect("/products");
+                }
+
+                return res.render("users/login", {
+                    errors: {
+                        email: {
+                            msg: "LA CONSTRASEÑA ES INCORRRECTA",
+                        },
+                    },
+                    showLinks,
+                });
             }
+
             return res.render("users/login", {
                 errors: {
                     email: {
-                        msg: "LA CONSTRASEÑA ES INCORRRECTA",
+                        msg: "USUARIO NO ENCONTRADO",
                     },
                 },
                 showLinks,
             });
-        }
-        return res.render("users/login", {
-            errors: {
-                email: {
-                    msg: "USUARIO NO ENCONTRADO",
-                },
-            },
-            showLinks,
         });
     },
     registerView: (req, res) => {
