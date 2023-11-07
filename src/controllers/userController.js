@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const bcryptjs = require("bcryptjs");
 
+const db = require("../database/models");
+
 // Ruta del archivo JSON de usuarios
 const usersFilePath = path.join(__dirname, "../database/users.json");
 
@@ -51,28 +53,32 @@ const userController = {
     register: async (req, res) => {
         try {
             const { firstName, lastName, email, password } = req.body;
+            const fileUpload = req.file;
+
+            // SI no se carga el archivo informo de un error
+            if (!fileUpload) {
+                const error = new Error("Por favor seleccione un archivo");
+                error.httpStatusCode = 400;
+                return next(error);
+            }
 
             // Encriptar la contraseña
             const hashedPassword = await bcryptjs.hash(password, 10);
 
             // Crear el objeto de usuario
             const newUser = {
-                id: users.length + 1,
                 firstName,
                 lastName,
                 email,
                 password: hashedPassword,
+                image: fileUpload.filename,
             };
 
-            // Agregar el nuevo usuario a la lista
-            users.push(newUser);
-
-            // Guardar la lista actualizada en el archivo JSON
-            fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-
-            console.log("Usuario registrado:", newUser);
-
-            res.redirect("/login"); // Redirigir a la página de inicio de sesión
+            db.Users.create(newUser)
+                .then((status) => {
+                    res.redirect("/login"); // Redirigir a la página de inicio de sesión
+                })
+                .catch((err) => console.log(err));
         } catch (error) {
             console.error(error);
             res.status(500).send("Error en el servidor");
