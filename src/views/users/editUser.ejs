@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- HEAD -->
+    <%- include("../partials/head"); %>
+    <!-- FIN HEAD -->
+    <body>
+        <!-- HEADER -->
+        <%- include("../partials/header");%>
+        <!-- FIN HEADER -->
+        <div class="register-container">
+            <div class="register-box">
+                <h2 class="register-title">
+                    <i class="fa-regular fa-user"></i> Editar Usuario
+                </h2>
+                <form
+                    class="register-form"
+                    action="/register"
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+                    <label for="firstName">Nuevo nombre</label>
+                    <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        required
+                    />
+
+                    <label for="lastName">Nuevo apellido</label>
+                    <input type="text" id="lastName" name="lastName" required />
+
+                    <label for="email">Editar Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="password">Nueva contraseña</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                    />
+
+                    <div class="form-group">
+                        <label for="image" class="form-label">Nueva imagen</label>
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            accept="image/*"
+                            class="form-input"
+                            required
+                        />
+
+                        <img
+                            id="image-preview"
+                            src="#"
+                            alt="FOTO-PRODUCTO"
+                            class="foto-producto"
+                            style="display: none"
+                        />
+                    </div>
+
+                    <button type="submit" class="register-button">
+                        Regístrate
+                    </button>
+                </form>
+            </div>
+        </div>
+        <!-- FOOTER -->
+        <%- include("../partials/footer"); %>
+
+        <script>
+            const imageInput = document.getElementById("image");
+            const imagePreview = document.getElementById("image-preview");
+
+            imageInput.addEventListener("change", function (event) {
+                const selectedImage = event.target.files[0];
+                if (selectedImage) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = "block";
+                    };
+                    reader.readAsDataURL(selectedImage);
+                } else {
+                    imagePreview.style.display = "none";
+                }
+            });
+        </script>
+    </body>
+</html>

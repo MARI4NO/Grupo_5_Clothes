@@ -14,6 +14,8 @@ userRouter.post(
 );
 userRouter.get("/misTickets", log, usersController.misTickets);
 userRouter.get("/miCarrito",log, usersController.miCarrito);
-userRouter.get("/myPerfil/:id", log, usersController.miPerfil)
+userRouter.get("/myPerfil/:id", log, usersController.miPerfil);
+userRouter.get("/myPerfil/:id/edit",log, usersController.editView);
+userRouter.put("/myPerfil/:id/edit",log, usersController.editUser);
 
 module.exports = userRouter;

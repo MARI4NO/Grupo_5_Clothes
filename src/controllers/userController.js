@@ -112,6 +112,38 @@ const userController = {
             })
             .catch((err) => console.log(err));
     },
+    editView:(req,res)=>{
+        const { usuario } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+        const id = usuario.id;
+        db.Users.findByPk(id)
+            .then((user) => {
+                res.render("users/editUser", {
+                    miperfil: user,
+                    idUsuario: usuario.id,
+                    showLinks,
+                });
+            })
+            .catch((err) => console.log(err));
+       
+    },
+    editUser: (req,res)=>{
+        const fileUpload = req.file;
+        const { firstName, lastName, email, password } = req.body;
+        // SI no se carga el archivo informo de un error
+        const editedUser = {
+            firstName,
+            lastName,
+            email,
+            password: hashedPassword,
+            image: fileUpload.filename,
+        };
+        db.Users.update({editedUser})
+            .then((data) => {
+                res.redirect("/Myperfil/:id");
+            })
+            .catch((err) => console.log(err));
+    }
 };
 
 module.exports = userController;
