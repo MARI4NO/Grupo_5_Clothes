@@ -53,7 +53,7 @@ const userAPIController = {
             .then((event) => {
                 res.json({
                     id: event.id,
-                    firstname: event.id,
+                    firstname: event.firstname,
                     lastname: event.lastname,
                     email: event.email,
                     image: `${url.URL_PUBLIC_IMAGES_PRODUCTS}/${event.image}`,
