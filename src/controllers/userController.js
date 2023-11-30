@@ -127,22 +127,30 @@ const userController = {
             .catch((err) => console.log(err));
        
     },
-    editUser: (req,res)=>{
+    editUser: async (req,res)=>{
+        try{
         const fileUpload = req.file;
-        const { firstName, lastName, email, password } = req.body;
+        const form = req.body;
+        console.log(form)
+        const hashedPassword = await bcryptjs.hash(password, 10);
+        
         // SI no se carga el archivo informo de un error
         const editedUser = {
             firstName,
             lastName,
             email,
-            password: hashedPassword,
+            hashedPassword,
             image: fileUpload.filename,
         };
-        db.Users.update({editedUser})
+        db.Users.update(editedUser,{where:{id:req.params.id}})
             .then((data) => {
-                res.redirect("/Myperfil/:id");
+                res.redirect(`/Myperfil/${req.params.id}`);;
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(err));}
+            catch (err) {
+                console.log(err);
+                res.status(500).json({ message: "Error en la actualización del usuario" });
+            }
     }
 };
 
