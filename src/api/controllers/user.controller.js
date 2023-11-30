@@ -14,7 +14,7 @@ const userAPIController = {
             offset: getOffset(page, limit),
             limit: Number(limit),
         };
-        db.Users.count(options)
+        db.Users.findAndCountAll(options)
             .then(({ count, rows: events }) => {
 
                 const productsMap = events.map((event) => ({
