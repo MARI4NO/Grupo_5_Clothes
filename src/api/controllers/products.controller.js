@@ -1,12 +1,23 @@
 const db = require("../../database/models");
 const url = require("../config/url.public");
+const {
+    getNextPage,
+    getOffset,
+    getPreviousPage,
+} = require("../utils/pagination");
 
 const productsAPIController = {
     list: (req, res) => {
-        db.Products.findAll()
-            .then((events) => {
-                console.log(events.length);
+        const { page = 1, limit = 20 } = req.query;
 
+        let options = {
+            offset: getOffset(page, limit),
+            limit: Number(limit),
+        };
+
+        db.Products.findAndCountAll(options)
+            .then(({ count, rows: events }) => {
+                // mapear todos los datos obtenidos
                 const productsMap = events.map((event) => ({
                     id: event.id,
                     title: event.title,
@@ -20,8 +31,22 @@ const productsAPIController = {
                     detail: `${url.URL_API}/products/${event.id}`,
                 }));
 
+                const nextPage = getNextPage(page, limit, count);
+
+                const next = nextPage
+                    ? `${url.URL_API}/products?page=${nextPage}`
+                    : nextPage;
+
+                const previousPage = getPreviousPage(page);
+
+                const previous = previousPage
+                    ? `${url.URL_API}/products?page=${previousPage}`
+                    : previousPage;
+
                 return res.json({
-                    count: events.length,
+                    count,
+                    next,
+                    previous,
                     products: productsMap,
                 });
             })
