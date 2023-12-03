@@ -14,7 +14,7 @@
                 </h2>
                 <form
                     class="register-form"
-                    action="/myPerfil/<%= idUsuario %>/edit?_method=PUT"
+                    action="/myPerfil/<%=idUsuario%>/edit"
                     method="post"
                     enctype="multipart/form-data"
                 >
@@ -23,20 +23,21 @@
                         type="text"
                         id="firstName"
                         name="firstName"
+                        value="<%=miperfil.firstName %>"
                     />
 
                     <label for="lastName">Nuevo apellido</label>
-                    <input type="text" id="lastName" name="lastName" />
+                    <input type="text" id="lastName" name="lastName" value="<%= miperfil.lastName %>"/>
 
                     <label for="email">Editar Correo Electrónico</label>
-                    <input type="email" id="email" name="email" />
+                    <input type="email" id="email" name="email" value="<%= miperfil.email %>"/>
 
                     <label for="password">Nueva contraseña</label>
                     <input
                         type="password"
                         id="password"
                         name="password"
-
+                        value="<%= miperfil.password %>"
                     />
 
                     <div class="form-group">
@@ -47,7 +48,7 @@
                             name="image"
                             accept="image/*"
                             class="form-input"
- 
+                            value="<%= miperfil.image%>"
                         />
 
                         <img
@@ -60,7 +61,7 @@
                     </div>
                     
                     <button type="submit" class="register-button">
-                        Regístrate
+                        Editar
                     </button>
                 </form>
             </div>
