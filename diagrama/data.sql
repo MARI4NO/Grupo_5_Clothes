@@ -1,9 +1,5 @@
 USE `concertpass_db`;
 
-# Insertar datos en la BD de Concert PASS
---
--- Insert data into the table `users`
---
 INSERT INTO
     `users`
 VALUES

@@ -1,6 +1,10 @@
 const bcryptjs = require("bcryptjs");
+const path = require("path");
+const fs = require("fs");
 
 const db = require("../database/models");
+
+const PATH_PUBLIC_IMAGES = path.join(__dirname, "../../public/img/users/");
 
 const userController = {
     loginView: (req, res) => {
@@ -109,6 +113,62 @@ const userController = {
                     idUsuario: usuario.id,
                     showLinks,
                 });
+            })
+            .catch((err) => console.log(err));
+    },
+    editView: (req, res) => {
+        const { usuario } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+        const id = usuario.id;
+        db.Users.findByPk(id)
+            .then((user) => {
+                res.render("users/editUser", {
+                    miperfil: user,
+                    idUsuario: usuario.id,
+                    showLinks,
+                });
+            })
+            .catch((err) => console.log(err));
+    },
+    editUser: async (req, res) => {
+        const { id } = req.params;
+        const fileUpload = req.file;
+        const { firstName, lastName, email, password } = req.body;
+
+        const editedUser = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            //image: fileUpload ? fileUpload.filename : user.image,
+        };
+
+        if (password) {
+            editedUser.password = bcryptjs.hashSync(password, 10);
+        }
+
+        if (fileUpload) {
+            // asigno la nueva imagen a cargar
+            editedUser.image = fileUpload.filename;
+
+            // elimino la imagen anterior
+            db.Users.findByPk(id).then((user) => {
+                if (user) {
+                    const pathFile = `${PATH_PUBLIC_IMAGES}${user.image}`;
+
+                    // verifico si existe la imagen correspondiente al evento
+                    const existFile = fs.existsSync(pathFile);
+
+                    if (existFile) {
+                        // Primero elimino la imagen correspondiente al evento
+                        fs.unlinkSync(pathFile);
+                    }
+                }
+            });
+        }
+
+        db.Users.update(editedUser, { where: { id } })
+            .then((data) => {
+                res.redirect(`/myPerfil/${id}`);
             })
             .catch((err) => console.log(err));
     },
