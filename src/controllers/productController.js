@@ -76,16 +76,19 @@ const productController = {
     },
     edit: (req, res) => {
         const { id } = req.params;
-        const eventFound = products.find((e) => e.id == id);
 
-        const { usuario } = req.session;
-        const showLinks = req.session.usuario ? true : false;
+        db.Products.findByPk(id)
+            .then((event) => {
+                const { usuario } = req.session;
+                const showLinks = req.session.usuario ? true : false;
 
-        res.render("products/edit", {
-            event: eventFound,
-            showLinks,
-            idUsuario: usuario ? usuario.id : 0,
-        });
+                res.render("products/edit", {
+                    event: event,
+                    showLinks,
+                    idUsuario: usuario ? usuario.id : 0,
+                });
+            })
+            .catch((err) => console.log(err));
     },
     destroy: (req, res) => {
         const { id } = req.params;
@@ -120,20 +123,37 @@ const productController = {
         const event = req.body;
         const fileUpdated = req.file;
 
-        db.Products.update(
-            {
-                title: event.title,
-                image: fileUpdated ? fileUpdated.filename : event.image,
-                city: event.city,
-                place: event.place,
-                address: event.address,
-                date: event.date,
-                type: event.type,
-                price: Number(event.price),
-                availables: Number(event.availables),
-            },
-            { where: { id } }
-        )
+        const editedEvent = {
+            title: event.title,
+            city: event.city,
+            place: event.place,
+            address: event.address,
+            date: event.date,
+            type: event.type,
+            price: Number(event.price),
+            availables: Number(event.availables),
+        };
+
+        if (fileUpdated) {
+            editedEvent.image = fileUpdated.filename;
+
+            // elimino la imagen anterior
+            db.Products.findByPk(id).then((event) => {
+                if (event) {
+                    const pathFile = `${PATH_PUBLIC_IMAGES}${user.event}`;
+
+                    // verifico si existe la imagen correspondiente al evento
+                    const existFile = fs.existsSync(pathFile);
+
+                    if (existFile) {
+                        // Primero elimino la imagen correspondiente al evento
+                        fs.unlinkSync(pathFile);
+                    }
+                }
+            });
+        }
+
+        db.Products.update(editedEvent, { where: { id } })
             .then((data) => {
                 res.redirect("/products");
             })
