@@ -14,7 +14,7 @@
                 </h2>
                 <form
                     class="register-form"
-                    action="/myPerfil/<%=idUsuario%>/edit"
+                    action="/myPerfil/<%=idUsuario%>/edit?_method=put"
                     method="post"
                     enctype="multipart/form-data"
                 >
@@ -37,7 +37,7 @@
                         type="password"
                         id="password"
                         name="password"
-                        value="<%= miperfil.password %>"
+                        value=""
                     />
 
                     <div class="form-group">

@@ -121,7 +121,7 @@ const userController = {
                 res.render("users/editUser", {
                     miperfil: user,
                     idUsuario: usuario.id,
-                    showLinks,
+                    showLinks
                 });
             })
             .catch((err) => console.log(err));
@@ -130,8 +130,9 @@ const userController = {
     editUser:(req,res)=>{
         const fileUpload = req.file;
         const { firstName, lastName, email, password } = req.body;
+        const user= db.Users.findByPk(req.params.id).then((user)=>{return user})
         console.log(req.body)
-        const hashedPassword = bcryptjs.hashSync(password, 10);
+        const hashedPassword= !password ? user.password: bcryptjs.hashSync(password, 10);
         
         // SI no se carga el archivo informo de un error
         const editedUser = {
@@ -139,7 +140,7 @@ const userController = {
             lastName:lastName,
             email:email,
             password:hashedPassword,
-            image: fileUpload.filename,
+            image: fileUpload ? fileUpload.filename : user.image
         };
         db.Users.update(editedUser,{where:{id:req.params.id}})
             .then((data) => {
