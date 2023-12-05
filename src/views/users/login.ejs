@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <!-- HEAD -->
-    <%- include('../partials/head'); %>
+    <% include('../partials/head'); %>
     <!-- FIN HEAD -->
     <body>
         <!-- HEADER -->
-        <%- include('../partials/header'); %>
+        <% include('../partials/header'); %>
         <!-- FIN HEADER -->
         <div class="login-container">
             <div class="login-box">
@@ -14,7 +14,7 @@
                 </h2>
                 <form class="login-form" action="/login" method="POST">
                     <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" required />
+                    <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
                     <% if (locals.errors && errors.email) { %>
                         <div class="errors-form">
                             <%= errors.email.msg %>
@@ -40,7 +40,8 @@
             </div>
         </div>
         <!-- FOOTER -->
-        <%- include('../partials/footer'); %>
+        <% include('../partials/footer'); %>
         <!-- FIN FOOTER -->
     </body>
 </html>
+
