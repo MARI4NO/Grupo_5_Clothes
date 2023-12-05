@@ -8,7 +8,7 @@ const destinationUsers = function (req, file, cb) {
 };
 
 const destinationProducts = function (req, file, cb) {
-    const pathUpload = path.resolve(__dirname, "../../public/img/users");
+    const pathUpload = path.resolve(__dirname, "../../public/img/products");
     cb(null, pathUpload);
 };
 

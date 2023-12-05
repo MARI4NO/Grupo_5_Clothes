@@ -1,58 +1,61 @@
-module.exports=(sequelize, DataTypes)=>{
-    let cols={
-        id:{
-            type:DataTypes.INTEGER,
+module.exports = (sequelize, DataTypes) => {
+    let cols = {
+        id: {
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
         },
-        title:{
+        title: {
             type: DataTypes.STRING(300),
-            allowNull: false
+            allowNull: false,
         },
-        image:{
+        image: {
             type: DataTypes.STRING(150),
-            allowNull: false
+            allowNull: false,
         },
-        city:{
+        city: {
             type: DataTypes.STRING(200),
-            allowNull: false
+            allowNull: false,
         },
-        place:{
+        place: {
             type: DataTypes.STRING(200),
-            allowNull: false
+            allowNull: false,
         },
-        adress:{
+        address: {
             type: DataTypes.STRING(250),
-            allowNull: false
+            allowNull: false,
         },
-        date:{
+        date: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: false,
         },
-        type:{
+        type: {
             type: DataTypes.STRING(150),
-            allowNull: false
+            allowNull: false,
         },
-        price:{
+        price: {
             type: DataTypes.DECIMAL,
-            allowNull: false
+            allowNull: false,
         },
-        availables:{
+        availables: {
             type: DataTypes.INTEGER(10),
-            allowNull: false
-        }
+            allowNull: false,
+        },
     };
-    let config={
+    let config = {
         tableName: "products",
-        timestamps: true
-    }
-    const Product=sequelize.define("Products", cols, config);
-    Product.associate= function(models){
+        timestamps: false,
+    };
+    const Product = sequelize.define("Products", cols, config);
+    /*
+    Product.associate = function (models) {
         Product.belongsTo(models.Sales_Products, {
             as: "sales_products",
-            foreignKey: "product_id"
-        })
-    }
-return Product;
-}
+            foreignKey: "product_id",
+        });
+    };
+    */
+   
+    return Product;
+};
