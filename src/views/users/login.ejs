@@ -30,6 +30,12 @@
                         required
                     />
 
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="errors-form">
+                            <%= errors.password.msg %>
+                        </div>
+                    <% } %>
+                    
                     <button type="submit" class="login-button">
                         Iniciar Sesión
                     </button>
