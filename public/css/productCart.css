@@ -28,13 +28,13 @@
     margin-left: 30px;
 }
 .iconp{
-    background-color: #c797ee;
+    background: radial-gradient(circle,#c797ee 0%,rgb(231 129 150) 100%);;
     border: solid 2px black;
     border-radius: 100%;
     padding: 10px;
 }
 .iconm{
-    background-color: #876c9c;
+    background:  radial-gradient(circle,#c797ee 0%,rgb(231 129 150) 100%);;
     border: solid 2px black;
     border-radius: 100%;
     padding: 10px;
@@ -85,12 +85,9 @@
     border: solid 3px black ;
     font-family: "Lexend Deca";
     background: radial-gradient(circle,#c797ee 0%,rgb(231 129 150) 100%);
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left:20px ;
-    text-align: end;
+    padding: 4px 20px;
+    margin: 20px;
+    font-size: 20px;
 }
 .nomban img{
     display: none;

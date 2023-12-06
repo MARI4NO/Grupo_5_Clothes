@@ -91,6 +91,8 @@ body {
     border-radius: 10px;
     border: solid 4px black;
     transition: all 0.3s;
+    display: flex;
+    flex-wrap: wrap;
 }
 .foto-producto {
     width: 100%;
@@ -144,16 +146,17 @@ body {
 /*TABLET*/
 @media (min-width: 530px) {
     .body-articulos {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         padding: 2rem 4rem;
         gap: 1rem;
     }
 }
 /*DESKTOP*/
 @media (min-width: 1000px) {
-    .caja-producto {
-        display: flex;
-        flex-wrap: wrap;
+    .body-articulos {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 2rem 4rem;
+        gap: 1rem;
     }
 }
 
