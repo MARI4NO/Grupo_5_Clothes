@@ -97,7 +97,7 @@
   
  ## 🐙 Hacer Más
  
--   **Pruebas unitarias:** Trabajaremos en la implementación de pruebas unitarias para asegurar la robustez de las nuevas funcionalidades.
+-   **Pruebas Unitarias:** Trabajaremos en la implementación de pruebas unitarias para asegurar la robustez de las nuevas funcionalidades.
   
  ## 🦀 Hacer Menos
  
@@ -106,9 +106,30 @@
  ## 🐟 Dejar de Hacer
  
 -   **Evitar cambios significativos fuera de las ventanas de desarrollo:** Nos esforzaremos por evitar cambios significativos fuera de las ventanas de desarrollo designadas para mantener la estabilidad del proyecto.
+
+    # Retrospectiva del Sprint 6
+    
+ ## 🌟 Continuar Haciendo
+ 
+-   **Entendimiento del flujo de trabajo:** Logramos una comprensión sólida de cómo funciona el flujo de trabajo con Sequelize y la base de datos.
+  
+-   **Conexión a la base de datos** Establecimos una conexión exitosa con la base de datos utilizando Sequelize.
+  
+ ## 🐙 Hacer Más
+ 
+-   **Documentación y comentarios:** Deberíamos mejorar la documentación en el código y agregar comentarios para una mayor claridad.
+  
+-   **Manejo de errores:** Necesitamos fortalecer nuestro manejo de errores y mensajes de error más informativos.
+
+ ## 🦀 Hacer Menos
+ 
+-   **Procrastinación en la solución de problemas:** Debemos abordar los problemas y desafíos de manera más proactiva en lugar de posponer la resolución.
+  
+ ## 🐟 Dejar de Hacer
+ 
+-   **Dependencia excesiva de datos simulados:** Debemos disminuir la dependencia de datos simulados y avanzar hacia la implementación de una base de datos real.
   
  ## 🐚 Comenzar a Hacer
  
--   **Implementar sesiones de retrospectiva más interactivas:** Introduciremos formatos más interactivos para las sesiones de retrospectiva, promoviendo la participación activa de todos los miembros del equipo.
-
+-   **Optimización de consultas:**  Investigar formas de optimizar las consultas a la base de datos para mejorar el rendimiento.
 
