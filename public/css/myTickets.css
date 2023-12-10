@@ -355,3 +355,10 @@ a {
     margin-top: 10px;
   }
 }
+@media (min-width: 576px){
+  .navbar-expand-sm .navbar-collapse {
+      display: flex!important;
+      flex-basis: auto;
+      justify-content: flex-end;
+  }
+  }

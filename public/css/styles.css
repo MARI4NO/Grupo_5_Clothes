@@ -168,7 +168,13 @@ body {
     justify-content: space-between;
     padding: 10px 20px;
 }
-
+@media (min-width: 576px){
+.navbar-expand-sm .navbar-collapse {
+    display: flex!important;
+    flex-basis: auto;
+    justify-content: flex-end;
+}
+}
 /* Estilos para el logo */
 .logo img {
     width: 40px;
@@ -338,7 +344,7 @@ a {
     }
     .logo {
         text-align: center;
-        width: 100%;
+        width: 70%;
     }
 
     .logo img {
@@ -491,4 +497,7 @@ a {
         box-shadow: none;
         padding: 20px;
     }
+}
+li :hover{
+    color: palevioletred;
 }

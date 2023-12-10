@@ -154,3 +154,10 @@
     font-weight: bold 9px;
     text-decoration: none;
 }
+@media (min-width: 576px){
+    .navbar-expand-sm .navbar-collapse {
+        display: flex!important;
+        flex-basis: auto;
+        justify-content: flex-end;
+    }
+}
