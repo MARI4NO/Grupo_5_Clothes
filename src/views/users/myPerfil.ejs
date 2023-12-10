@@ -34,11 +34,9 @@
         <%- include("../partials/header"); %>
         <!-- FIN HEADER -->
         <main>
-            <section class="">
-                <div class="titulo">
-                    <i class="fa-regular fa-user"></i>
-                    <h1 class="titulo-perfil">PERFIL</h1>
-                </div>
+            <section class="titulo">
+                <i class="fa-regular fa-user" style="font-size: 27px;"></i>
+                <h1 class="titulo-perfil">PERFIL</h1>
             </section>
             <section class="container-data">
                 <picture>
@@ -51,16 +49,20 @@
                 </article>
             </section>
             <section class="container-buttons">
-                <a href="/misTickets" class="btn uppercase font-medium"
-                    >MIS TICKETS <i class="fa-solid fa-ticket"></i
-                ></a>
+                <a href="/misTickets" class="btn uppercase font-medium" style="font-weight: bold;">
+                    MIS TICKETS
+                    <i class="fa-solid fa-ticket"></i>
+                </a>
 
-                <a
-                    href="/myPerfil/<%= miperfil.id %>/edit"
-                    class="btn btn-dark uppercase font-medium"
-                    >Editar perfil <i class="fa-solid fa-user"></i
-                ></a>
-                <a href="/logout/" class="btn btn-dark uppercase font-medium" style="color: red;">Cerrar Sesion</a>
+                <a href="/myPerfil/<%= miperfil.id %>/edit" class="btn btn-dark uppercase font-medium">
+                    Editar perfil
+                    <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
+                </a>
+
+                <a href="/logout/" class="btn btn-dark uppercase font-medium" style="color: #ff4040;">
+                    Cerrar Sesion
+                    <i class="fa-solid fa-user"></i>
+                </a>
             </section>
         </main>
         <!-- FOOTER -->

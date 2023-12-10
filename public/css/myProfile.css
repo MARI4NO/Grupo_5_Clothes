@@ -14,37 +14,14 @@ main {
 .titulo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-bottom: solid 4px black;
-    margin: auto;
-    margin-bottom: 20px;
-    width: fit-content;
+    padding-left: 10%;
 }
-.titulo h1 {
-    margin-bottom: 1px;
-    display: flex;
-    text-align: center;
-    margin-bottom: 1px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1px;
-}
-.titulo i {
-    display: flex;
+.titulo-perfil {
+    padding-left: 10px;
     font-size: 30px;
-    text-align: center;
-    margin-bottom: 1px;
-    align-items: center;
-    justify-content: center;
+    text-decoration: underline;
 }
 
-.container-data {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
 
 .container-data picture {
     width: 10rem;
@@ -59,7 +36,7 @@ main {
 .container-data article {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    align-items: center;
 }
 
 .container-data article p {
@@ -72,9 +49,10 @@ main {
 
 .container-buttons {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
 }
 
 .btn {
@@ -114,4 +92,16 @@ main {
 
 .font-medium {
     font-weight: 500;
+}
+
+@media (min-width: 590px){
+    .container-data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container-buttons{
+        flex-direction: row;
+        justify-content: center;
+    }
 }
