@@ -11,6 +11,15 @@
             SALIR DE ADMINISTRACION
             <i class="fa-solid fa-reply" style="color: #000000;"></i>
        </a>
+       <form
+            action="/products/create"
+            method="GET"
+            style="display: inline-flex"
+        >
+            <button type="submit" class="btn-adminAgregar">
+                AGREGAR EVENTO
+            </button>
+        </form>
     </div>
     <section class="body-articulos">
         <% products.forEach(event => { %>
