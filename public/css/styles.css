@@ -625,3 +625,15 @@ a {
 li :hover{
     color: palevioletred;
 }
+
+/*ADMIN VIEW*/
+.boton-admin{
+    border-radius: 15px;
+    padding: 4px 10px;
+    font-weight: bold;
+    background-color: rgba(255, 202, 214, 0.88);
+    border: solid 3px;
+}
+.caja-volver{
+    margin: 20px;
+}

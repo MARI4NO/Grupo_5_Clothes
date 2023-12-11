@@ -8,7 +8,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
-    margin: 7rem auto;
+    margin: 2rem auto;
 }
 
 .titulo {
@@ -112,4 +112,18 @@ main {
     .container-data article{
         text-align: center;
     }
+}
+
+/*ADMIN*/
+.caja-admin{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px; 
+}
+.boton-admin{
+    border-radius: 15px;
+    padding: 4px 10px;
+    font-weight: bold;
+    background-color: rgb(222 162 176 / 88%);
+    border: solid 3px;
 }
