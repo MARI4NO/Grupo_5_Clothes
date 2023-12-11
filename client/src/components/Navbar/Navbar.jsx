@@ -1,9 +1,8 @@
 import { useState } from "react";
 import logo from "../../../../public/img/logo.png";
 
-import styles from "./navbar.module.css";
-
-export default function Navbar({ showLinks }) {
+// eslint-disable-next-line react/prop-types
+export default function Navbar({ showLinks = false }) {
     const [showMobile, setShowMobile] = useState(false);
 
     return (
@@ -54,7 +53,7 @@ export default function Navbar({ showLinks }) {
                                 href="/register"
                                 className="bg-wisteria text-snow border w-full text-center py-2 px-4 rounded"
                             >
-                                Registrese
+                                Registrarse
                             </a>
                         </>
                     )}
@@ -100,7 +99,7 @@ export default function Navbar({ showLinks }) {
                                 href="/register"
                                 className="bg-wisteria text-snow border w-full text-center p-2 rounded"
                             >
-                                Crear cuenta
+                                Registrarse
                             </a>
                         </>
                     )}
