@@ -5,6 +5,7 @@ const usersController = require("../controllers/userController");
 const { body, validationResult } = require('express-validator');
 const log  = require("../config/logMiddelWare")
 const guest = require("../config/guestMiddelWare")
+const User = require("../models/userModel");
 
 // Validaciones para el registro de usuarios
 const registerValidations = [
@@ -28,28 +29,62 @@ const registerValidations = [
         return true;
     }),
 ];
-        
-userRouter.get("/login",guest, usersController.loginView);
-userRouter.post("/login", usersController.login);
-userRouter.get("/register",guest, usersController.registerView);
-userRouter.post(
-    "/register",
-    uploadUser.single("image"),
-    registerValidations,
-    async (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.render('register', { errors: errors.array() }); // Renderizar el formulario con errores
-        }
-        try { 
-            const { firstName, lastName, email, password, image } = req.body;
-             res.redirect('/login');
-        } catch (error) {
-            console.error(error);
-            res.status(500).send('Error en el servidor'); // Manejo básico de errores
-        }
+
+// Función middleware para manejar la lógica común de redirección y errores
+const handleValidationResult = (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.render(req.path, { errors: errors.array() });
     }
-);
+    next();
+};
+
+// Rutas para el registro de usuarios
+userRouter.get("/register", guest, usersController.registerView);
+userRouter.post("/register", uploadUser.single("image"), registerValidations, handleValidationResult, async (req, res) => {
+    // Lógica de registro
+    try {
+        const { firstName, lastName, email, password, image } = req.body;
+        res.redirect('/login');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error en el servidor'); // Manejo básico de errores
+    }
+});
+
+// Validaciones para el inicio de sesión de usuarios
+const loginValidations = [
+    body('email').isEmail().withMessage('Ingrese un correo electrónico válido'),
+    body('password').notEmpty().withMessage('La contraseña es obligatoria'),
+];
+
+// Ruta para el inicio de sesión de usuarios
+userRouter.post("/login", loginValidations, handleValidationResult, async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        // Verificar si el correo existe en la base de datos
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.render('login', { errors: [{ msg: 'El correo electrónico no está registrado' }] });
+        }
+
+        // Verificar si la contraseña coincide
+        const passwordMatch = await user.comparePassword(password);
+        if (!passwordMatch) {
+            return res.render('login', { errors: [{ msg: 'La contraseña no es válida' }] });
+        }
+
+        // Redireccionar al usuario a la página de inicio después de iniciar sesión
+        res.redirect('/');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error en el servidor'); // Manejo básico de errores
+    }
+});
+
+
+
 userRouter.get("/misTickets", log, usersController.misTickets);
 userRouter.get("/miCarrito",log, usersController.miCarrito);
 userRouter.get("/myPerfil/:id", log, usersController.miPerfil);
