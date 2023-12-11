@@ -29,13 +29,27 @@
                     <p class="lugar-show"><%= event.place %></p>
                 </section>
             </section>
-            <a href="/products/<%= event.id %>/detail">
-                <button class="boton-comprar">
-                    COMPRAR<i
-                        class="ticket-botoncomprar fas fa-ticket-alt"
-                    ></i>
-                </button>
-            </a>
+            <section class="caja-botonesadmin">
+                <form
+                    action="/delete/<%= event.id %>?_method=DELETE"
+                    method="POST"
+                    style="display: inline-flex"
+                >
+                    <button type="submit" class="btn-admin" style="background-color: #ef644f;">
+                        ELIMINAR
+                    </button>
+                </form>
+                <form
+                    action="/products/<%= event.id %>/edit"
+                    method="GET"
+                    style="display: inline-flex"
+                >
+                    <button type="submit" class="btn-admin" style="background-color: #fffaf9;">
+                        EDITAR
+                    </button>
+                </form>
+
+            </section>
         </article>
         <% }) %>
     </section>
