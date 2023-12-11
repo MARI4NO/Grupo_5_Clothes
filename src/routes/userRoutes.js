@@ -12,6 +12,10 @@ const registerValidations = [
     body('lastName').isLength({ min: 2 }).withMessage('El apellido debe tener al menos 2 caracteres'),
     body('email').isEmail().withMessage('Ingrese un correo electrónico válido'),
     body('email').custom(async (value) => {
+                const user = await User.findOne({ email: value });
+        if (user) {
+            throw new Error('Este correo electrónico ya está registrado');
+        }
  }),
     body('password').isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres'),
     body('password').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/).withMessage('La contraseña debe contener al menos una minúscula, una mayúscula, un número y un carácter especial'),
