@@ -9,6 +9,7 @@ export default {
                 wisteria: "#c797ee",
                 palePurple: "#fee9ff",
                 pompPower: "#879c9c",
+                rosePomp: "#E78196",
             },
         },
     },
