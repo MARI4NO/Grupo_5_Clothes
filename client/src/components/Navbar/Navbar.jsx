@@ -1,9 +1,17 @@
 import { useState } from "react";
 import logo from "../../../../public/img/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { openCloseDrawer } from "../../store/features/drawerSlice";
 
 // eslint-disable-next-line react/prop-types
-export default function Navbar({ showLinks = false }) {
+export default function Navbar({ showLinks = true }) {
     const [showMobile, setShowMobile] = useState(false);
+    const { isOpen } = useSelector((state) => state.drawer);
+    const dispatch = useDispatch();
+
+    const drawer = () => {
+        dispatch(openCloseDrawer(!isOpen));
+    };
 
     return (
         <header className="">
@@ -15,15 +23,12 @@ export default function Navbar({ showLinks = false }) {
                     {showLinks && (
                         <>
                             <li className="text-xl">
-                                <a
-                                    href="/myPerfil/<%= idUsuario %>"
-                                    className=""
-                                >
+                                <a href="#" className="">
                                     <i className="fa-regular fa-user"></i>
                                 </a>
                             </li>
                             <li className="text-xl">
-                                <a href="/misTickets">
+                                <a href="#">
                                     <i className="fa-solid fa-ticket"></i>
                                 </a>
                             </li>
@@ -33,7 +38,7 @@ export default function Navbar({ showLinks = false }) {
                                 </a>
                             </li>
                             <li className="text-xl">
-                                <a href="/miCarrito">
+                                <a href="#" onClick={drawer}>
                                     <i className="fas fa-shopping-cart"></i>
                                 </a>
                             </li>
@@ -73,14 +78,14 @@ export default function Navbar({ showLinks = false }) {
                             <a href="#">
                                 <i className="fa-regular fa-user"></i> Mi cuenta
                             </a>
-                            <a href="/misTickets">
+                            <a href="#">
                                 <i className="fa-solid fa-ticket"></i> Mis
                                 tickets
                             </a>
                             <a href="#">
                                 <i className="far fa-heart"></i> Mis favoritos
                             </a>
-                            <a href="/miCarrito">
+                            <a href="#">
                                 <i className="fas fa-shopping-cart"></i>
                                 Carrito
                             </a>

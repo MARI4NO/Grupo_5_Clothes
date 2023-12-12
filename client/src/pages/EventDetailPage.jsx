@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { addEventToCart } from "../store/features/cartSlice";
+import { openCloseDrawer } from "../store/features/drawerSlice";
 
 export default function EventDetailPage() {
     const { id } = useParams();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { isOpen } = useSelector((state) => state.drawer);
 
     const [loading, setLoading] = useState(true);
     const [event, setEvent] = useState();
@@ -14,11 +20,16 @@ export default function EventDetailPage() {
     };
 
     const addToCart = () => {
-        if(cant >= 1 && cant <= event.availables) {
-            alert("Agregando")
+        if (cant >= 1 && cant <= event.availables) {
+            dispatch(addEventToCart({ event, cant }));
+            dispatch(openCloseDrawer(!isOpen));
         } else {
-            alert("Debe ingresar una cantidad")
+            alert("Debe ingresar una cantidad");
         }
+    };
+
+    const comeBack = () => {
+        navigate("/");
     };
 
     useEffect(() => {
@@ -111,7 +122,13 @@ export default function EventDetailPage() {
                             </div>
                         </article>
 
-                        <div className="flex justify-center mt-8">
+                        <div className="flex justify-center mt-8 gap-4">
+                            <button
+                                className="uppercase bg-snow p-2 px-4 rounded-md border-2 border-neutral-900  text-lg font-semibold flex gap-2 items-center"
+                                onClick={comeBack}
+                            >
+                                Volver
+                            </button>
                             <button
                                 className="uppercase bg-wisteria p-2 px-4 rounded-md border-2 border-neutral-900 hover:bg-palePurple text-lg font-semibold flex gap-2 items-center"
                                 onClick={addToCart}
