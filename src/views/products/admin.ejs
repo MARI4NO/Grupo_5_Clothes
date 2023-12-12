@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+<%- include('../partials/head'); %>
+<!-- FIN HEAD -->
+<body>
+    <div style="height: 10px;">
+    </div>
+    <div class="caja-volver">
+        <a href="/" class="boton-admin" style="text-decoration: none; color: #000000;">
+            SALIR DE ADMINISTRACION
+            <i class="fa-solid fa-reply" style="color: #000000;"></i>
+       </a>
+       <form
+            action="/products/create"
+            method="GET"
+            style="display: inline-flex"
+        >
+            <button type="submit" class="btn-adminAgregar">
+                <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+                AGREGAR EVENTO
+                
+            </button>
+        </form>
+    </div>
+    <section class="body-articulos">
+        <% products.forEach(event => { %>
+        <article class="caja-producto">
+            <picture class="foto-producto">
+                <img
+                    src="/img/products/<%= event.image %>"
+                    alt="<%= event.title %>"
+                    class=""
+                />
+            </picture>
+
+            <section class="descripcion-producto">
+                <section class="descripcion">
+                    <p class="titulo-show"><%= event.title %></p>
+                    <p class="lugar-show"><%= event.place %></p>
+                </section>
+            </section>
+            <section class="caja-botonesadmin">
+                <form
+                    action="/delete/<%= event.id %>?_method=DELETE"
+                    method="POST"
+                    style="display: inline-flex"
+                >
+                    <button type="submit" class="btn-admin" style="background-color: #ef644f;">
+                        ELIMINAR
+                    </button>
+                </form>
+                <form
+                    action="/products/<%= event.id %>/edit"
+                    method="GET"
+                    style="display: inline-flex"
+                >
+                    <button type="submit" class="btn-admin" style="background-color: #fffaf9;">
+                        EDITAR
+                    </button>
+                </form>
+
+            </section>
+        </article>
+        <% }) %>
+    </section>
+</body>
+</html>

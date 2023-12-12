@@ -90,5 +90,5 @@ userRouter.get("/miCarrito",log, usersController.miCarrito);
 userRouter.get("/myPerfil/:id", log, usersController.miPerfil);
 userRouter.get("/myPerfil/:id/edit",log, usersController.editView);
 userRouter.put("/myPerfil/:id/edit",uploadUser.single("image"),usersController.editUser);
-
+userRouter.get("/logout/", usersController.logout);
 module.exports = userRouter;

@@ -91,6 +91,8 @@ body {
     border-radius: 10px;
     border: solid 4px black;
     transition: all 0.3s;
+    display: flex;
+    flex-wrap: wrap;
 }
 .foto-producto {
     width: 100%;
@@ -144,19 +146,134 @@ body {
 /*TABLET*/
 @media (min-width: 530px) {
     .body-articulos {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         padding: 2rem 4rem;
         gap: 1rem;
     }
 }
 /*DESKTOP*/
 @media (min-width: 1000px) {
-    .caja-producto {
-        display: flex;
-        flex-wrap: wrap;
+    .body-articulos {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 2rem 4rem;
+        gap: 1rem;
     }
 }
 
+/*MIS TICKETS*/
+.titulo {
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+  }
+  .titulo-entradas {
+    padding-left: 10px;
+    font-size: 30px;
+    text-decoration: underline;
+  }
+/*Estilos eventos*/
+.body-eventos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  /*CAJA PADRE*/
+  
+  .caja-evento {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    width: 100%;
+    margin: 8px;
+    border-radius: 10px;
+    border: solid 4px black;
+    transition: all 0.3s;
+  }
+  
+  .caja-evento:hover{
+      box-shadow:  -6.891px 24.032px 76px 0px #66457657;
+      background-color: #66457630;
+  }
+  .foto-producto {
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+  }
+  /*DESCRIPCION PRODUCTO*/
+  /*Es toda la parte de la info del evento*/
+  .descripcion-evento {
+    width: 100%;
+  }
+  .descripcion-titulo {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .titulo-show {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* Article*/
+  .descripcion-compra {
+    background-color: #e4e4e4;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* p */
+  .num-compra {
+    font-size: 22px;
+    margin: 0px;
+  }
+  
+  .descripcion-detalles {
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .boton-detalles {
+    border-radius: 10px;
+    border: solid 2px black;
+    padding: 7px;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px;
+    background: radial-gradient(circle, rgb(231 129 150) 0%, #c797ee 100%);
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  .boton-detalles:hover {
+    background-color: #141414;
+    background: radial-gradient(circle, #c797ee 0%, rgb(231, 129, 150) 100%);
+    background-clip: inherit;
+    -webkit-background-clip: text; /* Esto permite que el fondo degradado afecte al texto */
+    color: transparent;
+    font-weight: bold;
+    border: solid 2px #141414;
+  }
+  
+  /*TABLET*/
+  @media (min-width: 530px) {
+    .caja-evento {
+      display: flex;
+      width: 45%;
+      flex-wrap: wrap;
+    }
+  }
+  /*DESKTOP*/
+  @media (min-width: 1000px) {
+    .caja-evento {
+      display: flex;
+      width: 25%;
+      flex-wrap: wrap;
+    }
+  }
 /* Estilos para el header */
 .main-header {
     background-color: #fffafb;
@@ -165,7 +282,23 @@ body {
     justify-content: space-between;
     padding: 10px 20px;
 }
-
+@media (min-width: 576px){
+.navbar-expand-sm .navbar-collapse {
+    display: flex!important;
+    flex-basis: auto;
+    justify-content: flex-end;
+}
+}
+.boton-desplegable{
+    color: #131313;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background: radial-gradient(circle, #c797ee 0%, rgb(231 129 150) 100%);
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow .15s ease-in-out;
+}
 /* Estilos para el logo */
 .logo img {
     width: 40px;
@@ -335,7 +468,7 @@ a {
     }
     .logo {
         text-align: center;
-        width: 100%;
+        width: 70%;
     }
 
     .logo img {
@@ -488,4 +621,48 @@ a {
         box-shadow: none;
         padding: 20px;
     }
+}
+li :hover{
+    color: palevioletred;
+}
+
+/*ADMIN VIEW*/
+.boton-admin{
+    border-radius: 15px;
+    padding: 4px 10px;
+    font-weight: bold;
+    background-color: rgba(255, 202, 214, 0.88);
+    border: solid 3px;
+}
+.caja-volver{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.caja-botonesadmin{
+    padding: 10px 20px;
+}
+.btn-admin{
+    border-radius: 0.375rem;
+    border: solid 2px black;
+    padding: 0.5rem 1.5rem;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 1 rem;
+    cursor: pointer;
+    transition: all 1s;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center; 
+    font-weight: bold;
+}
+.btn-adminAgregar{
+    border-radius: 0.375rem;
+    color: white;
+    border: solid 3px black;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    background: radial-gradient(circle, #c797ee 0%, rgb(231 129 150) 100%);
+    margin: 0px 5px;
 }

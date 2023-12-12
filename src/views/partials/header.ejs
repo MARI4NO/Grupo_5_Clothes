@@ -1,42 +1,31 @@
-<header class="main-header">
-    <a class="logo" href="/">
+<header class="navbar navbar-expand-sm main-header">
+    <div class="container-fluid">
+      <a class="logo" href="/">
         <img src="/img/logo.png" alt="Concert Pass Logo" />
-    </a>
-    <nav class="nav-icons">
-        <ul class="desktop-icons">
-            <% if(showLinks){ %>
-            <li>
-                <a href="/myPerfil/<%= idUsuario %>"
-                    ><i class="fa-regular fa-user"></i
-                ></a>
-            </li>
-            <li>
-                <a href="/misTickets"><i class="fa-solid fa-ticket"></i></a>
-            </li>
-            <li>
-                <a href="#"><i class="far fa-heart"></i></a>
-            </li>
-            <li>
-                <a href="/miCarrito"><i class="fas fa-shopping-cart"></i></a>
-            </li>
-            <% } %>
+      </a>
+      <button class="navbar-toggler boton-desplegable" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+      </button>
+      <div class="collapse navbar-collapse " id="collapsibleNavbar">
+        <ul class="navbar-nav desktop-icons">
+          <% if(showLinks){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/myPerfil/<%= idUsuario %>">
+              <i class="fa-regular fa-user"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/misTickets">
+              <i class="fa-solid fa-ticket"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/miCarrito">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+          <% } %>
         </ul>
-        <div class="dropdown">
-            <button class="dropdown-button">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="dropdown-content">
-                <% if(showLinks){ %>
-                <a href="#"><i class="fa-regular fa-user"></i> Mi cuenta</a>
-                <a href="/misTickets"
-                    ><i class="fa-solid fa-ticket"></i> Mis tickets</a
-                >
-                <a href="#"><i class="far fa-heart"></i> Mis favoritos</a>
-                <a href="/miCarrito"
-                    ><i class="fas fa-shopping-cart"></i>Carrito</a
-                >
-                <% } %>
-            </div>
-        </div>
-    </nav>
-</header>
+      </div>
+    </div>
+  </header>

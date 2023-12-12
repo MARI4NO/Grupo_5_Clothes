@@ -68,5 +68,4 @@ productRouter.put("/products/:id", uploadProduct.single("image"), updateProductV
     }
 });
 productRouter.delete("/delete/:id", productController.destroy);
-
 module.exports = productRouter;
