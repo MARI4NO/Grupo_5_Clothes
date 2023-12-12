@@ -2,6 +2,7 @@ import { useState } from "react";
 import logo from "../../../../public/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { openCloseDrawer } from "../../store/features/drawerSlice";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export default function Navbar({ showLinks = true }) {
@@ -16,9 +17,9 @@ export default function Navbar({ showLinks = true }) {
     return (
         <header className="">
             <nav className="bg-snow flex items-center justify-between px-6 py-4 md:py-4 md:px-12 relative">
-                <a className="w-44 md:w-56" href="/">
+                <Link className="w-44 md:w-56" to={"/"}>
                     <img src={logo} alt="Concert Pass Logo" />
-                </a>
+                </Link>
                 <ul className="list-none md:flex gap-6 hidden">
                     {showLinks && (
                         <>
