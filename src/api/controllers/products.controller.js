@@ -66,6 +66,7 @@ const productsAPIController = {
                     type: event.type,
                     price: event.price,
                     availables: event.availables,
+                    date: event.date,
                     image: `${url.URL_PUBLIC_IMAGES_PRODUCTS}/${event.image}`,
                 });
             })
