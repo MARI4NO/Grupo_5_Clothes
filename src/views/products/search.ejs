@@ -12,7 +12,7 @@
         </section>
 
         <section class="busqueda">
-            <form action="/search" method="get" enctype="multipart/form-data">
+            <form action="/search" method="GET" >
                 <input
                     type="text"
                     name="search"
@@ -23,7 +23,7 @@
             </form>
         </section>
         <section class="body-articulos">
-            <% products.forEach(event => { %>
+            <% results.forEach(event => { %>
             <article class="caja-producto">
                 <picture class="foto-producto">
                     <img

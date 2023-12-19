@@ -14,6 +14,7 @@ productRouter.get(
     log,
     productController.detalleProducto
 );
+productRouter.get("/search",productController.search)
 productRouter.get("/products/create", log, productController.create);
 productRouter.post(
     "/products",

@@ -3,12 +3,15 @@ const path = require("path");
 const convertToLocaleDate = require("../utils/convertToLocaleDate");
 
 const db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 const PATH_PUBLIC_IMAGES = path.join(__dirname, "../../public/img/products/");
 
 const productController = {
     list: (req, res) => {
-        const { usuario } = req.session;
+        const {
+            usuario
+        } = req.session;
         const showLinks = req.session.usuario ? true : false;
 
         db.Products.findAll()
@@ -22,9 +25,13 @@ const productController = {
             .catch((err) => console.log(err));
     },
     detalleProducto: (req, res) => {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
 
-        const { usuario } = req.session;
+        const {
+            usuario
+        } = req.session;
         const showLinks = req.session.usuario ? true : false;
 
         db.Products.findByPk(id)
@@ -39,7 +46,9 @@ const productController = {
             .catch((err) => console.log(err));
     },
     create: (req, res) => {
-        const { usuario } = req.session;
+        const {
+            usuario
+        } = req.session;
         const showLinks = req.session.usuario ? true : false;
 
         res.render("products/create", {
@@ -59,27 +68,31 @@ const productController = {
         }
 
         db.Products.create({
-            title: form.title,
-            image: fileUpload.filename,
-            city: form.city,
-            place: form.place,
-            address: form.address,
-            date: form.date,
-            type: form.type,
-            price: Number(form.price),
-            availables: Number(form.availables),
-        })
+                title: form.title,
+                image: fileUpload.filename,
+                city: form.city,
+                place: form.place,
+                address: form.address,
+                date: form.date,
+                type: form.type,
+                price: Number(form.price),
+                availables: Number(form.availables),
+            })
             .then((data) => {
                 res.redirect("/products");
             })
             .catch((err) => console.log(err));
     },
     edit: (req, res) => {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
 
         db.Products.findByPk(id)
             .then((event) => {
-                const { usuario } = req.session;
+                const {
+                    usuario
+                } = req.session;
                 const showLinks = req.session.usuario ? true : false;
 
                 res.render("products/edit", {
@@ -91,7 +104,9 @@ const productController = {
             .catch((err) => console.log(err));
     },
     destroy: (req, res) => {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
 
         db.Products.findByPk(id)
             .then((event) => {
@@ -105,7 +120,11 @@ const productController = {
                     fs.unlinkSync(pathFile);
 
                     // elimino el evento de la base de datos
-                    db.Products.destroy({ where: { id } })
+                    db.Products.destroy({
+                            where: {
+                                id
+                            }
+                        })
                         .then((data) => {
                             res.redirect("/products");
                         })
@@ -118,7 +137,9 @@ const productController = {
     },
 
     update: (req, res) => {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
 
         const event = req.body;
         const fileUpdated = req.file;
@@ -153,12 +174,41 @@ const productController = {
             });
         }
 
-        db.Products.update(editedEvent, { where: { id } })
+        db.Products.update(editedEvent, {
+                where: {
+                    id
+                }
+            })
             .then((data) => {
                 res.redirect("/products");
             })
             .catch((err) => console.log(err));
     },
+    search: async (req, res) => {
+        const parametro = req.query.search;
+        const {
+            usuario
+        } = req.session;
+        const showLinks = req.session.usuario ? true : false;
+        try {
+            const results = await db.Products.findAll({
+                where: {
+                    title: {
+                        [Op.like]: `%${parametro}%`,
+                    },
+                },
+            });
+            res.render('products/search', {
+                results,
+                showLinks,
+                parametro,
+                idUsuario: usuario ? usuario.id : 0
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error en la búsqueda');
+        }
+    }
 };
 
 module.exports = productController;
